@@ -1347,6 +1347,30 @@ a.widget.widget-hover-effect4:active {
     margin-bottom: 10px;
 }
 
+/* Scroll to top link */
+#to-top {
+    display: none;
+    position: fixed;
+    bottom: 55px;
+    left: 5px;
+    border-radius: 3px;
+    padding: 0 12px;
+    font-size: 28px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+}
+
+#to-top:hover {
+    color: #ffffff;
+    background-color: #1bbae1;
+    text-decoration: none;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
 /*
 =================================================================
 (#m05pgs) PAGES
@@ -3416,7 +3440,7 @@ code {
 
 .carousel-control.left:hover,
 .carousel-control.right:hover {
-    background: url('ie8_opacity_dark_30.png') repeat;
+    background: url('../img/template/ie8_opacity_dark_30.png') repeat;
     background: rgba(0, 0, 0, 0.30);
 }
 

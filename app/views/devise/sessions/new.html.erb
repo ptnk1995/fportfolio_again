@@ -7,12 +7,16 @@
       "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "devise.scss.css" %>
+    <%= stylesheet_link_tag "static-user/main.css" %>
+    <%= javascript_include_tag "user/plugins.js" %>
+    <%= javascript_include_tag "user/app.js" %>
   </head>
   <body style="background-color: black;">
   <%= render "layouts/header" %>
    <!-- Login Background -->
     <div id="login-background">
-      <%= image_tag "header/login_header.jpg", class: "animation-pulseSlow" %>
+      <%= image_tag "framgia.jpg", class: "animation-pulseSlow" %>
     </div>
     <!-- END Login Background -->
 
