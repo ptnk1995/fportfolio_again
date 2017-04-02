@@ -1,0 +1,35 @@
+<div style="color:black">
+  <div class="row container">
+    <div class="col-md-2  col-md-offset-1">
+      <%= image_tag @user.avatar.url %>
+    </div>
+    <div class="col-md-5">
+       <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td><%= t "name" %></td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td><%= t "gender" %></td>
+            <td><%= @user.gender %></td>
+          </tr>
+          <tr>
+            <td><%= t "birthday" %></td>
+            <td><%= @user.birthday %></td>
+          </tr>
+           <tr>
+            <td><%= t "email" %></td>
+            <td><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <% if @user.is_user? current_user %>
+        <%= link_to t("devise.mailer.password_change.subject"),
+          edit_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

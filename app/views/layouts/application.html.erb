@@ -3,14 +3,9 @@
   <head>
     <title>Fportfolio</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "static-user/main.css", 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "static-user/plugins.css", 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "static-user/themes.css", 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "user/plugins.js", 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "user/app.js", 'data-turbolinks-track': 'reload' %>
+    <%= render "shared/include" %>
   </head>
   <body>
    <!--  <p class="notice"><%= notice %></p>

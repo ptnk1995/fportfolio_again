@@ -1,4 +1,4 @@
-<!-- Intro -->
+<%= render "shared/include" %>
 <section class="site-section site-section-light site-section-top themed-background-dark">
   <div class="container">
     <h1 class="animation-slideDown"><strong>Latest News</strong></h1>
@@ -17,9 +17,9 @@
           <div class="row">
             <div class="col-md-4">
               <p>
-                <a href="blog_post.html">
+                <%= link_to blog_path(id: 1) do %>
                   <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-                </a>
+                <% end %>
               </p>
             </div>
             <div class="col-md-8">
