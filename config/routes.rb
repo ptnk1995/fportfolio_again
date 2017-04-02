@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :tops
   namespace :admin do
     root "static_pages#home"
-    resources :blogs, :projects, :contacts, :abouts, :users
+    resources :blogs, :projects, :contacts, :abouts, :users, :categories, :techniques
   end
 end
