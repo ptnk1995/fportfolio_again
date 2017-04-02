@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag "static-user/main.css", 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "static-user/plugins.css", 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "static-user/themes.css", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "user/plugins.js", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "user/app.js", 'data-turbolinks-track': 'reload' %>
 <!-- Media Container -->
 <!-- Intro -->
 <div class="media-container">
@@ -232,7 +237,9 @@
         </div>
       </div>
       <div class="col-md-12 text-right">
-        <a href="ecom_product_list.html"><strong>View All</strong> <i class="fa fa-arrow-right"></i></a>
+        <%= link_to projects_path() do %>
+         <strong>View All</strong> <i class="fa fa-arrow-right"></i>
+        <% end %>
       </div>
     </div>
     <!-- END Best Sellers -->
@@ -246,7 +253,9 @@
       <div class="push">
         <i class="gi gi-shopping_bag fa-5x text-muted"></i>
       </div>
-      <a href="ecom_product_list.html" class="btn btn-lg btn-primary">Explore Store <i class="fa fa-arrow-right"></i></a>
+        <%= link_to projects_path(), class: "btn btn-lg btn-primary" do %>
+         Explore more <i class="fa fa-arrow-right"></i>
+      <% end %>
     </div>
   </div>
 </section>
