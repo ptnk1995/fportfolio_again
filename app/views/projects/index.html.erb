@@ -1,123 +1,169 @@
-<script>$(function(){ Portfolio.init(); });</script>
-
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top themed-background-dark">
-  <div class="container">
-    <h1 class="text-center animation-slideDown"><strong>Our Work</strong></h1>
-    <h2 class="h3 text-center animation-slideUp">We will be happy to work together and bring your ideas to life!</h2>
+  <div class="container text-center">
+    <h1 class="animation-slideDown"><strong>Explore over 5.000 products!</strong></h1>
   </div>
 </section>
 <!-- END Intro -->
-<!-- Content -->
+<!-- Product List -->
 <section class="site-content site-section">
   <div class="container">
-    <!-- Portfolio Filter Links -->
-    <!-- Custom Portfolio functionality is initialized in js/pages/portfolio.js -->
-    <!-- Add the category value you want each link in .portfolio-filter to filter out in its data-category attribute. Add the value 'all' to show all items -->
-    <div class="site-block text-center">
-      <div class="btn-group portfolio-filter">
-        <a href="javascript:void(0)" class="btn btn-primary active" data-category="all">All</a>
-        <a href="javascript:void(0)" class="btn btn-primary" data-category="design">Design</a>
-        <a href="javascript:void(0)" class="btn btn-primary" data-category="development">Development</a>
-        <a href="javascript:void(0)" class="btn btn-primary" data-category="logo">Logo</a>
+    <div class="row">
+      <!-- Sidebar -->
+      <%= render "shared/sidebar_project" %>
+      <!-- END Sidebar -->
+      <!-- Products -->
+      <div class="col-md-8 col-lg-9">
+        <div class="form-inline push-bit clearfix">
+          <select id="results-show" name="results-show" class="form-control pull-right" size="1">
+            <option value="0" disabled selected>SHOW</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
+            <option value="100">100</option>
+          </select>
+          <select id="results-sort" name="results-sort" class="form-control" size="1">
+            <option value="0" disabled selected>SORT BY</option>
+            <option value="1">Popularity</option>
+            <option value="2">Name (A to Z)</option>
+            <option value="3">Name (Z to A)</option>
+            <option value="4">Price (Lowest to Highest)</option>
+            <option value="5">Price (Highest to Lowest)</option>
+            <option value="6">Sales (Lowest to Highest)</option>
+            <option value="7">Sales (Highest to Lowest)</option>
+          </select>
+        </div>
+        <div class="row store-items">
+          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+            <div class="store-item">
+              <div class="store-item-rating text-warning">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <div class="store-item-image">
+                <%= link_to project_path(id: 1) do %>
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                <% end %>
+              </div>
+              <div class="store-item-info clearfix">
+                <span class="store-item-price themed-color-dark pull-right">$ 109</span>
+                <a href="ecom_product.html"><strong>Sunglasses</strong></a><br>
+                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+            <div class="store-item">
+              <div class="store-item-rating text-warning">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <div class="store-item-image">
+                <a href="ecom_product.html">
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                </a>
+              </div>
+              <div class="store-item-info clearfix">
+                <span class="store-item-price themed-color-dark pull-right">$ 59</span>
+                <a href="ecom_product.html"><strong>Gloves</strong></a><br>
+                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+            <div class="store-item">
+              <div class="store-item-rating text-warning">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <div class="store-item-image">
+                <a href="ecom_product.html">
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                </a>
+              </div>
+              <div class="store-item-info clearfix">
+                <span class="store-item-price themed-color-dark pull-right">$ 99</span>
+                <a href="ecom_product.html"><strong>Jacket</strong></a><br>
+                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+            <div class="store-item">
+              <div class="store-item-rating text-warning">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <div class="store-item-image">
+                <a href="ecom_product.html">
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                </a>
+              </div>
+              <div class="store-item-info clearfix">
+                <span class="store-item-price themed-color-dark pull-right">$ 79</span>
+                <a href="ecom_product.html"><strong>Headset</strong></a><br>
+                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+            <div class="store-item">
+              <div class="store-item-rating text-warning">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <div class="store-item-image">
+                <a href="ecom_product.html">
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                </a>
+              </div>
+              <div class="store-item-info clearfix">
+                <span class="store-item-price themed-color-dark pull-right">$ 1.599</span>
+                <a href="ecom_product.html"><strong>Laptop</strong></a><br>
+                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
+            <div class="store-item">
+              <div class="store-item-rating text-warning">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <div class="store-item-image">
+                <a href="ecom_product.html">
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                </a>
+              </div>
+              <div class="store-item-info clearfix">
+                <span class="store-item-price themed-color-dark pull-right">$ 149</span>
+                <a href="ecom_product.html"><strong>Sunglasses</strong></a><br>
+                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- END Products -->
     </div>
-    <!-- END Portfolio Filter Links -->
-    <!-- Portfolio Items -->
-    <!-- Add the category value for each item in its data-category attribute (for the filter functionality) -->
-    <div class="row portfolio">
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="design">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #1</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="logo">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #2</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="logo">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #3</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="design">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #4</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="logo">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #5</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="design">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #6</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="development">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #7</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="development">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #8</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="logo">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #9</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="logo">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #10</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="development">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #11</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="design">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #12</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="development">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #13</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="logo">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #14</strong></span>
-        </a>
-      </div>
-      <div class="col-sm-4 portfolio-item animation-fadeInQuick" data-category="development">
-        <a href="portfolio_single.html">
-        <%= image_tag "project/photo17.jpg", class: "img-responsive" %>
-        <span class="portfolio-item-info"><strong>Project #15</strong></span>
-        </a>
-      </div>
-    </div>
-    <!-- END Portfolio Items -->
   </div>
 </section>
-<!-- END Content -->
+<!-- END Product List -->
