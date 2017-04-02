@@ -1,3 +1,5 @@
+<%= javascript_include_tag "user/plugins.js", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "user/app.js", 'data-turbolinks-track': 'reload' %>
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top themed-background-dark">
   <div class="container text-center">
@@ -58,7 +60,7 @@
                 <option value="xl">XL</option>
                 <option value="xxl">XXL</option>
               </select>
-              <button type="submit" class="btn btn-primary">Add to Cart</button>
+              <%= link_to "Meet team", project_teams_path(project_id: 1), class: "btn btn-primary" %>
             </form>
           </div>
           <!-- END Info -->

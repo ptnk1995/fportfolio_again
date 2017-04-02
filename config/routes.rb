@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "static_pages#home"
   resources :projects
-  resources :blogs, :contacts
+  resources :blogs, :contacts, :abouts
   resources :projects do
     resources :teams
   end
