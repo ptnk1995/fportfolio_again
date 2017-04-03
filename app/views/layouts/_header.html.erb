@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <!-- Site Logo -->
-    <%= link_to root_path(), class: "site-logo" do %>
+    <%= link_to root_path(I18n.locale), class: "site-logo" do %>
     <i class="gi gi-flash"></i> <strong>Pro</strong>UI
     <% end %>
     <!-- Site Logo -->
@@ -27,36 +27,48 @@
           <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Projects</a>
           <ul>
             <li>
-              <%= link_to "Top projects", tops_path() %>
+              <%= link_to "Top projects", tops_path(I18n.locale) %>
             </li>
             <li>
-              <%= link_to "List Projects", projects_path() %>
+              <%= link_to "List Projects", projects_path(I18n.locale) %>
             </li>
           </ul>
         </li>
 
         <li>
-          <%= link_to "Blogs", blogs_path() %>
+          <%= link_to "Blogs", blogs_path(I18n.locale) %>
         </li>
         <li>
           <a href="pricing.html">Pricing</a>
         </li>
         <li>
-          <%= link_to "Contact", contacts_path() %>
+          <%= link_to "Contact", contacts_path(I18n.locale) %>
         </li>
         <li>
-          <%= link_to "About", abouts_path() %>
+          <%= link_to "About", abouts_path(I18n.locale) %>
         </li>
         <li>
-          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Language</a>
-          <ul>
-            <li>
-              <a href="ecom_home.html">Home</a>
-            </li>
-            <li>
-              <a href="ecom_search_results.html">Search Results</a>
-            </li>
-          </ul>
+          <% if params[:locale].present? %>
+              <%= link_to url_for(locale: params[:locale]), class: "site-nav-sub", data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/#{params[:locale]}.png", class: "icon-language" %>
+                <i class="fa fa-angle-down site-nav-arrow"></i><%= Settings.languages[params[:locale]] %>
+              <% end %>
+            <% else %>
+              <%= link_to url_for(locale: :en), class: "site-nav-sub", data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/en.png", class: "icon-language" %>
+                <i class="fa fa-angle-down site-nav-arrow"></i><%= Settings.languages.en %>
+              <% end %>
+            <% end %>
+          <ul class="dropdown-menu forAnimate choose-language" role="menu">
+              <% Settings.languages.keys.each do |lang| %>
+                <li>
+                  <%= link_to url_for(locale: lang) do %>
+                    <%= image_tag "flag/#{lang}.png", class: "icon-language" %>
+                    <%= Settings.languages[lang] %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
         </li>
         <li class="active">
           <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Nguyen Phuoc Tien</a>

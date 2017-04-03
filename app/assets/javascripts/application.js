@@ -16,3 +16,6 @@
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables
 //= require main.js.coffee
+//= require jquery.purr
+//= require best_in_place
+
