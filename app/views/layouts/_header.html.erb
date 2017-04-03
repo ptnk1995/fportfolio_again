@@ -73,9 +73,13 @@
         <li class="active">
           <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Nguyen Phuoc Tien</a>
           <ul>
+            <% if user_signed_in? %>
             <li>
-              <a href="index.html" class="active">Full Width</a>
+              <%= link_to destroy_user_session_path(locale: I18n.locale), method: :delete do %>
+                <%= t "log_out" %>
+              <% end %>
             </li>
+            <% end %>
             <li>
               <a href="index_alt.html">Full Width (Dark)</a>
             </li>

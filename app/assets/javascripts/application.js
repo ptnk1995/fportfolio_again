@@ -18,4 +18,4 @@
 //= require main.js.coffee
 //= require jquery.purr
 //= require best_in_place
-
+//= require social-share-button
