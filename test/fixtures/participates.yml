@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_accept: false
+  position: MyString
+  user: one
+  project: one
+
+two:
+  is_accept: false
+  position: MyString
+  user: two
+  project: two
