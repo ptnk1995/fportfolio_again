@@ -18,7 +18,20 @@
         <%= render "layouts/sidebar" %>
         <div id="main-container">
           <%= render "shared/navbar" %>
-          <%= yield %>
+          <div id="page-content">
+            <div class="content-header">
+              <div class="header-section">
+                <h1>
+                  <i class="gi gi-table"></i>Tables<br><small>Professional looking tables for your data!</small>
+                </h1>
+              </div>
+            </div>
+            <ul class="breadcrumb breadcrumb-top">
+              <li>Tables</li>
+              <li><a href="">General</a></li>
+            </ul>
+            <%= yield %>
+          </div>
           <%= render "layouts/admin_footer" %>
         </div>
       </div>

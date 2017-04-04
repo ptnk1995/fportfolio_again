@@ -1,0 +1,28 @@
+<%= form_for @contact do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, error_class: :error,
+      id: "contact-name", class: "form-control input-lg required", placeholder: "Your name.." %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, id: "contact-email", placeholder: "Your email..",
+      class: "form-control input-lg" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, id: "title", placeholder: "Title..",
+      class: "form-control input-lg" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, id: "template-contactform-message",
+      class: "form-control input-lg", placeholder: "Let us know how we can assist..",
+      rows: 10 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Send Message",
+      class: "btn btn-lg btn-primary", locale: I18n.locale %>
+  </div>
+<% end %>

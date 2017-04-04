@@ -1,106 +1,98 @@
-<div id="page-content">
-  <div class="content-header">
-    <div class="header-section">
-      <h1>
-        <i class="gi gi-table"></i>Tables<br><small>Professional looking tables for your data!</small>
-      </h1>
+<div class="block">
+  <div class="block-title">
+    <h2><strong>Table</strong> Styles</h2>
+  </div>
+  <div class="table-options clearfix">
+    <div class="btn-group btn-group-sm pull-right">
+      <button class="btn btn-primary" data-toggle="modal"
+        data-target="#new_category">
+        <i class="gi gi-plus"></i> <%= t".add" %>
+      </button>
+    </div>
+    <div class="btn-group btn-group-sm pull-left" data-toggle="buttons">
+      <label id="style-default" class="btn btn-primary active" data-toggle="tooltip" title=".table">
+      <input type="radio" name="style-options"> Default
+      </label>
+      <label id="style-bordered" class="btn btn-primary" data-toggle="tooltip" title=".table-bordered">
+      <input type="radio" name="style-options"> Bordered
+      </label>
+
+      <label id="style-borderless" class="btn btn-primary" data-toggle="tooltip" title=".table-borderless">
+      <input type="radio" name="style-options"> Borderless
+      </label>
     </div>
   </div>
-  <ul class="breadcrumb breadcrumb-top">
-    <li>Tables</li>
-    <li><a href="">General</a></li>
-  </ul>
-  <div class="block">
-    <div class="block-title">
-      <h2><strong>Table</strong> Styles</h2>
-    </div>
-    <div class="table-options clearfix">
-      <div class="btn-group btn-group-sm pull-right">
-        <a href="javascript:void(0)" class="btn btn-primary active" id="style-striped" data-toggle="tooltip" title=".table-striped">Striped</a>
-        <a href="javascript:void(0)" class="btn btn-primary" id="style-condensed" data-toggle="tooltip" title=".table-condensed">Condensed</a>
-        <a href="javascript:void(0)" class="btn btn-primary" id="style-hover" data-toggle="tooltip" title=".table-hover">Hover</a>
-      </div>
-      <div class="btn-group btn-group-sm pull-left" data-toggle="buttons">
-        <label id="style-default" class="btn btn-primary active" data-toggle="tooltip" title=".table">
-        <input type="radio" name="style-options"> Default
-        </label>
-        <label id="style-bordered" class="btn btn-primary" data-toggle="tooltip" title=".table-bordered">
-        <input type="radio" name="style-options"> Bordered
-        </label>
-        <label id="style-borderless" class="btn btn-primary" data-toggle="tooltip" title=".table-borderless">
-        <input type="radio" name="style-options"> Borderless
-        </label>
+  <div class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true" id ="new_category">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+          <h3 class="text-center"><%= t ".add" %></h3>
+          <div id="holiday-form">
+            <%= render "form" %>
+          </div>
+
       </div>
     </div>
-    <div class="table-responsive">
-      <table class="general-table" class="table table-striped table-vcenter table-hover bootstrap-datatable datatable" aria-describedby="DataTables_Table_0_info">
-        <thead>
-          <tr>
-            <th style="width: 80px;" class="text-center">Index</th>
-            <th style="width: 150px;" class="text-center"><i class="gi gi-user"></i></th>
-            <th>Client</th>
-            <th>Email</th>
-            <th>Subscription</th>
-            <th style="width: 150px;" class="text-center">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-center"></td>
+  </div>
+  <div class="table-responsive">
+    <table class="general-table" class="table table-striped table-vcenter table-hover bootstrap-datatable datatable" aria-describedby="DataTables_Table_0_info">
+      <thead>
+        <tr>
+          <th style="width: 80px;" class="text-center">Index</th>
+          <th style="width: 150px;" class="text-center"><i class="gi gi-user"></i></th>
+          <th>Client</th>
+          <th>Subscription</th>
+          <th style="width: 150px;" class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each_with_index do |category, index| %>
+          <tr id="category-<%= category.id %>">
+            <td class="text-center"><%= index + 1 %></td>
             <td class="text-center">
               <%= image_tag "avatar/avatar1.jpg", class: "img-circle" %>
             </td>
-            <td><a href="page_ready_user_profile.html">client1</a></td>
-            <td>client3@example.com</td>
-            <td><a href="javascript:void(0)" class="label label-warning">Trial</a></td>
+            <td><a href="page_ready_user_profile.html"><%= category.name %></a></td>
+            <td><a href="javascript:void(0)" class="label label-warning"><%= category.target_type %></a></td>
             <td class="text-center">
               <div class="btn-group btn-group-xs">
-                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-danger"><i class="fa fa-times"></i></a>
+                <%= link_to edit_admin_category_path(category), title: "Edit", class: "btn btn-default", data: {toggle: "tooltip"} do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
+                <%= link_to admin_category_path(category), title: "Delete",
+                  method: :delete, class: "btn btn-danger", data: {toggle: "tooltip", confirm: t("alert_confirm")} do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
               </div>
             </td>
           </tr>
-          <tr>
-            <td class="text-center"></td>
-            <td class="text-center">
-              <%= image_tag "avatar/avatar1.jpg", class: "img-circle" %>
-            </td>
-            <td><a href="page_ready_user_profile.html">vy</a></td>
-            <td>client1@example.com</td>
-            <td><a href="javascript:void(0)" class="label label-warning">Trial</a></td>
-            <td class="text-center">
-              <div class="btn-group btn-group-xs">
-                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
-                <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-danger"><i class="fa fa-times"></i></a>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            <div class="btn-group btn-group-sm pull-right">
+              <a href="javascript:void(0)" class="btn btn-primary" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+              <div class="btn-group btn-group-sm dropup">
+                <a href="javascript:void(0)" class="btn btn-primary pull-right dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                  <li><a href="javascript:void(0)"><i class="fa fa-print pull-right"></i> Print</a></li>
+                  <li class="dropdown-header"><i class="fa fa-share pull-right"></i> Export As</li>
+                  <li>
+                    <a href="javascript:void(0)">.pdf</a>
+                    <a href="javascript:void(0)">.cvs</a>
+                  </li>
+                </ul>
               </div>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="6">
-              <div class="btn-group btn-group-sm pull-right">
-                <a href="javascript:void(0)" class="btn btn-primary" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
-                <div class="btn-group btn-group-sm dropup">
-                  <a href="javascript:void(0)" class="btn btn-primary pull-right dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                    <li><a href="javascript:void(0)"><i class="fa fa-print pull-right"></i> Print</a></li>
-                    <li class="dropdown-header"><i class="fa fa-share pull-right"></i> Export As</li>
-                    <li>
-                      <a href="javascript:void(0)">.pdf</a>
-                      <a href="javascript:void(0)">.cvs</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="btn-group btn-group-sm">
-                <a href="javascript:void(0)" class="btn btn-primary" data-toggle="tooltip" title="Edit Selected"><i class="fa fa-pencil"></i></a>
-                <a href="javascript:void(0)" class="btn btn-primary" data-toggle="tooltip" title="Delete Selected"><i class="fa fa-times"></i></a>
-              </div>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
+            </div>
+            <div class="btn-group btn-group-sm">
+              <a href="javascript:void(0)" class="btn btn-primary" data-toggle="tooltip" title="Edit Selected"><i class="fa fa-pencil"></i></a>
+              <a href="javascript:void(0)" class="btn btn-primary" data-toggle="tooltip" title="Delete Selected"><i class="fa fa-times"></i></a>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </div>

@@ -1,0 +1,17 @@
+<div class="modal-body">
+<%= form_for [:admin, @category], multipart: true do |f| %>
+  <%= render "shared/error_messages", object: @category %>
+  <div class="form-group">
+    <%= f.label :name, t(".name"), class: "field-compulsory-before" %>
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, t(".name"), class: "field-compulsory-before" %>
+    <%= f.select :target_type, Category.target_types.keys, {}, class: "form-control" %>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <%= f.submit "save", class: "btn btn-primary" %>
+</div>
+<% end %>

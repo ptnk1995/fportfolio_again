@@ -8,13 +8,19 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = params[:locale] || :en
+    if params[:locale].present?
+      session[:locale] = params[:locale]
+    elsif session[:locale].blank?
+      session[:locale] = I18n.default_locale
+    end
+    I18n.locale = session[:locale]
   end
 
   def verify_admin
-    unless current_user.has_role? :admin?
+    if current_user.has_role? :admin?
+      redirect_to admin_root
+    else
       flash[:notice] = t "flash.notice.permission_denied"
-      redirect_to root_url
     end
   end
 end

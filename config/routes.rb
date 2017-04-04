@@ -6,14 +6,17 @@ Rails.application.routes.draw do
     devise_for :users
     resources :projects
     resources :blogs, :contacts, :abouts
+    resources :contacts
     resources :projects do
       resources :teams
     end
     resources :tops
 
-    namespace :admin do
-      root "static_pages#home"
-      resources :blogs, :projects, :contacts, :abouts, :users, :categories, :techniques, :roles
-    end
+
+  end
+  namespace :admin do
+    root "static_pages#home"
+    resources :blogs, :projects, :contacts, :abouts, :users, :techniques, :roles
+    resources :categories
   end
 end
