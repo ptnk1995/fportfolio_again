@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!
 
+  layout "admin"
   def index
     @users = User.all
   end
