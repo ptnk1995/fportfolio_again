@@ -77,7 +77,8 @@ var App = function() {
         });
 
         /* Toggles 'open' class on store menu */
-        $('.store-menu .submenu').on('click', function(){
+        $(document).off("click", ".store-menu .submenu");
+        $(document).on("click", ".store-menu .submenu", function(){
            $(this)
                .parent('li')
                .toggleClass('open');

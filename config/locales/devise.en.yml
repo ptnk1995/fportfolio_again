@@ -23,8 +23,6 @@ en:
         subject: "Reset password instructions"
       unlock_instructions:
         subject: "Unlock instructions"
-      email_changed:
-        subject: "Email Changed"
       password_change:
         subject: "Password Changed"
     omniauth_callbacks:
@@ -62,3 +60,15 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  sign_in_with_provider: "Sign in with %{social_network}"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: " already exists."
+            password: 
+              too_short: " too short."
+            password_confirmation: 
+              confirmation: " does not match the confirm password."

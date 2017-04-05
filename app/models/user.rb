@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :participates, dependent: :destroy
   has_many :projects, through: :participates
 
+  mount_uploader :avatar, ImageUploader
+
   ROLES = {admin: "Admin", user: "User"}
 end

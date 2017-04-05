@@ -1,3 +1,6 @@
+<%= javascript_include_tag "admin/plugins.js", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "admin/app.js", 'data-turbolinks-track': 'reload' %>
+
 <div class="block">
   <div class="block-title">
     <h2><strong>Table</strong> Styles</h2>
@@ -51,7 +54,7 @@
           <tr id="category-<%= category.id %>">
             <td class="text-center"><%= index + 1 %></td>
             <td class="text-center">
-              <%= image_tag "avatar/avatar1.jpg", class: "img-circle" %>
+              <%= image_tag "avatar/avatar1.jpg", class: "img-circle", style: "width: 300px; height: 300px;" %>
             </td>
             <td><a href="page_ready_user_profile.html"><%= category.name %></a></td>
             <td><a href="javascript:void(0)" class="label label-warning"><%= category.target_type %></a></td>

@@ -22,3 +22,5 @@ Rails.application.config.assets.precompile += %w( admin/plugins.js )
 Rails.application.config.assets.precompile += %w( admin/app.js )
 
 Rails.application.config.assets.precompile += %w( devise.scss.css )
+Rails.application.config.assets.precompile += %w( admin.css )
+Rails.application.config.assets.precompile += %w( admin.js )

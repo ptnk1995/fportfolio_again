@@ -1,5 +1,50 @@
-<% provide :button_text, t("create") %>
-<div class="container color_black">
-  <center><h3><%= t "new_user" %></h3></center>
-  <%= render "form" %>
+<div class="block">
+  <div class="block-title">
+    <h2><strong>Table</strong> Styles</h2>
+  </div>
+  <div class="table-options clearfix">
+    <div class="btn-group btn-group-sm pull-left" data-toggle="buttons">
+      <label id="style-default" class="btn btn-primary active" data-toggle="tooltip" title=".table">
+      <input type="radio" name="style-options"> Default
+      </label>
+      <label id="style-bordered" class="btn btn-primary" data-toggle="tooltip" title=".table-bordered">
+      <input type="radio" name="style-options"> Bordered
+      </label>
+      <label id="style-borderless" class="btn btn-primary" data-toggle="tooltip" title=".table-borderless">
+      <input type="radio" name="style-options"> Borderless
+      </label>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <%= form_for [:admin, @user] do |f| %>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :user_name %>
+            <%= f.text_field :user_name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :phone %>
+            <%= f.text_field :phone, class: "form-control" %>
+          </div>
+        </div>
+          <%= f.file_field :avatar %>
+        <div class="row">
+          <div style="float: right; margin-top: 10px; margin-right: 1%;">
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

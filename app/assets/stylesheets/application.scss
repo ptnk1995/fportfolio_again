@@ -13,6 +13,7 @@
  *= require_self
  *= require font-awesome
  *= require dataTables/jquery.dataTables
+ *= require_tree ./static-user
  */
 
 @import 'bootstrap-sprockets';
