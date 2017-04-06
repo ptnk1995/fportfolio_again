@@ -1,0 +1,10 @@
+<div class="panel panel-info">
+  <div class="panel-heading"><%= t "logs.admin_log" %></div>
+  <div class="panel-body">
+    <ul>
+      <% admin_logs.each do |log| %>
+        <li><%= log %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

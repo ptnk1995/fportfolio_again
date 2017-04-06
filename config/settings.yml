@@ -6,3 +6,7 @@ contact:
   min_title_length: 3
   min_content_length: 10
   max_content_length: 255
+logs:
+  admin_log_path: "log/admin.log"
+  log_dir: "log"
+  last_ten: 10

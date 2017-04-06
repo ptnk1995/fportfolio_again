@@ -274,4 +274,17 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  Warden::Manager.after_authentication do |user, auth, opts|
+    if user.has_role? :admin?
+      ADMIN_LOGGER.info "Admin #{user.name} signed in | "\
+        "Email: #{user.email}, IP:  #{auth.request.remote_ip}"
+    end
+  end
+
+  Warden::Manager.before_logout do |user, auth, opts|
+    if user.has_role? :admin?
+      ADMIN_LOGGER.info "Admin #{user.name} signed out | "\
+        "Email: #{user.email}, IP:  #{auth.request.remote_ip}"
+    end
+  end
 end
