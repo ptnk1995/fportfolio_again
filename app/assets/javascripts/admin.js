@@ -20,3 +20,20 @@
 //= require jquery.purr
 //= require best_in_place
 //= require social-share-button
+
+function alert_message(title, text, type){
+  swal({
+    title: title,
+    text: text,
+    type: type
+  });
+}
+
+$(document).ready(function() {
+  function validation() {
+
+        alert_message('', I18n.t('dashboard.request.errors_date'), 'warning');
+
+  }
+})
+

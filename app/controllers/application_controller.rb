@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
       flash[:notice] = t "flash.notice.permission_denied"
     end
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied"
+    redirect_to admin_errors_path()
+  end
 end

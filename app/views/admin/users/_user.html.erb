@@ -1,0 +1,24 @@
+<tr>
+  <td class="text-center"></td>
+  <td class="text-center">
+    <%= image_tag user.avatar.url, class: "img-circle", style: "width: 100px; height: 100px;" %>
+  </td>
+  <td><a href=""><%= user.name %></a></td>
+  <td><%= user.email %></td>
+  <td>
+    <% user.roles.each do |role| %>
+    <a href="javascript:void(0)" class="label label-warning"><%= role.name.titleize %></a>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <div class="btn-group btn-group-xs">
+      <%= link_to edit_admin_user_path(user), title: "Edit", class: "btn btn-default", data: {toggle: "tooltip"} do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+      <%= link_to admin_user_path(user), title: "Delete",
+          method: :delete, class: "btn btn-danger", data: {toggle: "tooltip", confirm: t("alert_confirm")} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+    </div>
+  </td>
+</tr>

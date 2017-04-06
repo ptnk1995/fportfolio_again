@@ -1,7 +1,8 @@
 class Admin::CategoriesController < ApplicationController
+  load_and_authorize_resource
   layout "admin"
   before_action :create_category, only: [:index, :new]
-  before_action :load_category, except: [:index, :new, :create]
+
   def index
     @categories = Category.all
   end
@@ -39,14 +40,10 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :target_type)
+    params.require(:category).permit(:name, :target_type, :image)
   end
 
   def create_category
     @category = Category.new
-  end
-
-  def load_category
-    @category = Category.find_by(id: params[:id])
   end
 end
