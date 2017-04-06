@@ -5,7 +5,7 @@
   <div class="table-options clearfix">
     <div class="btn-group btn-group-sm pull-right">
       <button class="btn btn-primary" data-toggle="modal"
-        data-target="#new_technique">
+        data-target="#new_feature">
         <i class="gi gi-plus"></i> <%= t".add" %>
       </button>
     </div>
@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="modal fade" tabindex="-1" role="dialog"
-    aria-labelledby="myLargeModalLabel" aria-hidden="true" id ="new_technique">
+    aria-labelledby="myLargeModalLabel" aria-hidden="true" id ="new_feature">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -41,12 +41,12 @@
         <tr>
           <th style="width: 80px;" class="text-center">Index</th>
           <th style="width: 150px;" class="text-center"><i class="gi gi-user"></i></th>
-          <th>Name technique</th>
+          <th>Name feature</th>
           <th style="width: 150px;" class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <%= render @techniques, technique: @technique %>
+        <%= render @features, feature: @feature %>
       </tbody>
       <tfoot>
         <tr>

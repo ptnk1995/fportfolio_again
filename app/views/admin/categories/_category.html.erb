@@ -7,7 +7,6 @@
   <td><a href="javascript:void(0)" class="label label-warning">Trial</a></td>
   <td class="text-center">
     <div class="btn-group btn-group-xs">
-      <a href="javascript:void(0)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
       <%= link_to admin_category_path(category),
       method: :delete, remote: true, title: "Delete",
       data: {toggle: "tooltip", confirm: t("alert_confirm")},
@@ -15,9 +14,9 @@
         <i class="fa fa-times"></i>
       <% end %>
       <%= link_to admin_category_path(holiday),
-          method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
-          <i class="fa fa-trash">cc</i>
-        <% end %>
+        method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+        <i class="fa fa-trash">cc</i>
+      <% end %>
     </div>
   </td>
 </tr>

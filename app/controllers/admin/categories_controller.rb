@@ -1,7 +1,10 @@
 class Admin::CategoriesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
+  authorize_resource
+
   layout "admin"
   before_action :create_category, only: [:index, :new]
+  #before_action :load_category, except: [:index]
 
   def index
     @categories = Category.all
@@ -46,4 +49,8 @@ class Admin::CategoriesController < ApplicationController
   def create_category
     @category = Category.new
   end
+
+  # def load_category
+  #   @category= Category.find_by(id: params[:id])
+  # end
 end

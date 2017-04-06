@@ -1,8 +1,10 @@
 class Admin::TechniquesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
+  authorize_resource
+
   layout "admin"
   before_action :create_technique, only: [:index, :new]
-  #before_action :load_technique, except: [:index]
+  before_action :load_technique, except: [:index]
   def index
     @techniques = Technique.all
   end
@@ -12,10 +14,7 @@ class Admin::TechniquesController < ApplicationController
 
   def create
     @technique = Technique.new technique_params
-    binding.pry
-
     if @technique.save
-      binding.pry
       flash[:success] = t "create_success"
       redirect_to admin_techniques_path
     else
@@ -53,7 +52,7 @@ class Admin::TechniquesController < ApplicationController
     @technique = Technique.new
   end
 
-  # def load_technique
-  #   @technique = Technique.find_by(id: params[:id])
-  # end
+  def load_technique
+    @technique = Technique.find_by(id: params[:id])
+  end
 end

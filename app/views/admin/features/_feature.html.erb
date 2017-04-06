@@ -1,15 +1,15 @@
 <tr>
   <td class="text-center"></td>
   <td class="text-center">
-    <%= image_tag technique.image.url, class: "img-circle", style: "width: 100px; height: 100px;" %>
+    <%= image_tag feature.image.url, class: "img-circle", style: "width: 100px; height: 100px;" %>
   </td>
-  <td><a href=""><%= technique.name %></a></td>
+  <td><a href=""><%= feature.name %></a></td>
   <td class="text-center">
     <div class="btn-group btn-group-xs">
-      <%= link_to edit_admin_technique_path(technique), title: "Edit", class: "btn btn-default", data: {toggle: "tooltip"} do %>
+      <%= link_to edit_admin_feature_path(feature), title: "Edit", class: "btn btn-default", data: {toggle: "tooltip"} do %>
         <i class="fa fa-pencil"></i>
       <% end %>
-      <%= link_to admin_technique_path(technique), title: "Delete",
+      <%= link_to admin_feature_path(feature), title: "Delete",
         method: :delete, class: "btn btn-danger", data: {toggle: "tooltip", confirm: t("alert_confirm")} do %>
         <i class="fa fa-trash"></i>
       <% end %>
