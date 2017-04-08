@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Fportfolio</title>
+    <meta property="fb:app_id" content="275540116228463"/>
     <%= csrf_meta_tags %>
     <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,6 +15,8 @@
       <%= render "layouts/header" %>
       <%= yield %>
       <%= render "layouts/footer" %>
+      <%= render "layouts/subiz_chat" %>
+<%= yield(:javascript) %><!-- We put our JavaScript tags here -->
     </div>
     <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
   </body>

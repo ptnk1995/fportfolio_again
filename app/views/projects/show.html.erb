@@ -45,8 +45,8 @@
               <span class="h4"><strong class="text-success">IN STOCK</strong><br><small>15 Available</small></span>
             </div>
             <hr>
-            <%= social_share_button_tag(Post.first.title, :url => "http://myapp.com/foo/bar", :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
-            <%= social_share_button_tag(Post.first.title, :url => request.original_url, :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
+            <%= social_share_button_tag(Project.first.name, :url => "http://myapp.com/foo/bar", :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
+            <%= social_share_button_tag(Project.first.name, :url => request.original_url, :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
             <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
             <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
             <hr>
@@ -193,6 +193,9 @@
                     </div>
                   </li>
                 </ul>
+                ssssss<%= render "layouts/comment" %>
+                <%= content_tag :div, '', :class => "fb-comments", "data-href" => request.original_url, "data-numposts" => "5", "data-colorscheme" => "light", "data-width": "877px" %>
+
               </div>
             </div>
           </div>
