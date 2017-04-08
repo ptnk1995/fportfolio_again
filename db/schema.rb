@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406100937) do
+ActiveRecord::Schema.define(version: 20170408075418) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20170406100937) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "content",    limit: 65535
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["room_id"], name: "index_messages_on_room_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
   create_table "participates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "is_accept"
     t.string   "position"
@@ -107,6 +117,14 @@ ActiveRecord::Schema.define(version: 20170406100937) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id", using: :btree
+  end
+
   create_table "techniques", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -145,9 +163,12 @@ ActiveRecord::Schema.define(version: 20170406100937) do
   add_foreign_key "comments", "users"
   add_foreign_key "feature_projects", "features"
   add_foreign_key "feature_projects", "projects"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "participates", "projects"
   add_foreign_key "participates", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "projects", "categories"
+  add_foreign_key "rooms", "users"
 end

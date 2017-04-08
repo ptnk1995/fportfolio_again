@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fportfolio</title>
+    <meta property="fb:app_id" content="275540116228463"/>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag    'rooms', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'room_chat', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+      <%= yield %>
+  </body>
+</html>
