@@ -1,0 +1,22 @@
+# Test environment
+top_srcdir='/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4'
+top_builddir='/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4'
+
+set -a
+COMPARE="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick compare"
+COMPOSITE="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick composite"
+CONJURE="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick conjure"
+CONVERT="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick convert"
+DISPLAY="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick display"
+IDENTIFY="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick identify"
+MAGICK="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick"
+MONTAGE="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities/magick montage"
+VALIDATE="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/tests/validate"
+DRAWTEST="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/tests/drawtest"
+WANDTEST="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/tests/wandtest"
+LD_LIBRARY_PATH="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/magick/.libs:${LD_LIBRARY_PATH}"
+MAGICK_CODER_MODULE_PATH="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/coders"
+MAGICK_CONFIGURE_PATH="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/config:/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/config"
+MAGICK_FILTER_MODULE_PATH="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/filters"
+PATH="/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/utilities:/home/sony/Documents/DoAn/fportfolio/ImageMagick-7.0.5-4/tests:${PATH}"
+set +a

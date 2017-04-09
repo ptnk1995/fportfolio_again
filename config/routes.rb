@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "static_pages#home"
-    resources :blogs, :projects, :contacts, :abouts, :users, :techniques, :roles, :features
+    resources :blogs, :posts, :projects, :contacts, :abouts, :users, :techniques, :roles, :features
     resources :categories, :errors
   end
 end

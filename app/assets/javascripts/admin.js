@@ -20,6 +20,7 @@
 //= require jquery.purr
 //= require best_in_place
 //= require social-share-button
+//= require ckeditor/init
 
 function alert_message(title, text, type){
   swal({

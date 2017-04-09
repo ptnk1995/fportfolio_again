@@ -1,0 +1,47 @@
+<div class="block">
+  <div class="block-title">
+    <h2><strong>Table</strong> Styles</h2>
+  </div>
+  <div class="table-options clearfix">
+    <div class="btn-group btn-group-sm pull-left" data-toggle="buttons">
+      <label id="style-default" class="btn btn-primary active" data-toggle="tooltip" title=".table">
+      <input type="radio" name="style-options"> Default
+      </label>
+      <label id="style-bordered" class="btn btn-primary" data-toggle="tooltip" title=".table-bordered">
+      <input type="radio" name="style-options"> Bordered
+      </label>
+
+      <label id="style-borderless" class="btn btn-primary" data-toggle="tooltip" title=".table-borderless">
+      <input type="radio" name="style-options"> Borderless
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <% @posts.each_with_index do |post, index| %>
+      <div class="col-sm-4 block-section text-center">
+        <!-- Just wrap your image with a div.gallery-image and.. -->
+        <div class="gallery-image">
+          <!-- .. add your image.. -->
+          <%= image_tag post.image.url, class: "img-responsive", style: "height: 170px;" %>
+          <!-- .. along with a div.gallery-image-options which will contain your hover links! -->
+          <div class="gallery-image-options">
+            <!-- Link to your large image with the attribute data-toggle="lightbox-image" -->
+            <a href="../assets/<%= post.image.url %>" data-toggle="lightbox-image" title="<%= raw post.content %>" class="gallery-link btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+
+            <a href="javascript:void(0)" class="btn btn-sm btn-alt btn-primary" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+            <a href="javascript:void(0)" class="btn btn-sm btn-alt btn-primary" data-toggle="tooltip" title="" data-original-title="Remove"><i class="fa fa-times"></i></a>
+          </div>
+        </div>
+        <h4 class="sub-header"><%= link_to post.title, "" %></h4>
+        <div style="margin-top: 5px;">
+          <div style="float: left;">
+            <%= image_tag "framgia.jpg", class: "img-circle", style: "width: 35px; height: 35px;" %>
+            <%= link_to post.user.name, "", style: "padding-left: 5px;" %>
+          </div>
+          <div style="float: right;"><%= link_to "Lap trinh di dong", "" , class: "label label-warning"%></div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

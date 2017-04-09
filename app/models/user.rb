@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :projects, through: :participates
   has_many :messages
   has_many :rooms
+  has_many :posts
 
   mount_uploader :avatar, ImageUploader
 
