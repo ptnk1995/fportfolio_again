@@ -21,6 +21,8 @@
 //= require best_in_place
 //= require social-share-button
 //= require ckeditor/init
+//= require nprogress
+//= require nprogress-turbolinks
 
 function alert_message(title, text, type){
   swal({
@@ -38,3 +40,6 @@ $(document).ready(function() {
   }
 })
 
+NProgress.configure({
+  showSpinner: false
+});

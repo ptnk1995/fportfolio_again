@@ -1,5 +1,5 @@
 <div class="modal-body">
-<%= form_for [:admin, current_user.posts.new] do |f| %>
+<%= form_for [:admin, @post] do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="form-group">
     <%= f.label :title, t(".name"), class: "field-compulsory-before" %>

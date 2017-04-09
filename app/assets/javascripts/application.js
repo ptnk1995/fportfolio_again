@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -20,3 +21,9 @@
 //= require best_in_place
 //= require social-share-button
 //= require_tree ./user
+//= require nprogress
+//= require nprogress-turbolinks
+
+NProgress.configure({
+  showSpinner: false
+});
