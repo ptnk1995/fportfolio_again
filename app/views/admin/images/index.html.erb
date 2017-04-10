@@ -1,0 +1,11 @@
+<h1>My Images</h1>
+<%= form_for admin_images_index_path, multipart: true, html: { class: "dropzone"} do |f|  %>
+  <div class="fallback">
+    <%= f.file_field :image %><br>
+    <%= f.submit "Upload my Avatar" %>
+  </div>
+<% end %>
+
+<div class="index">
+  <%= render "index" %>
+</div>

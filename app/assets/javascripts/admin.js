@@ -43,3 +43,10 @@ $(document).ready(function() {
 NProgress.configure({
   showSpinner: false
 });
+
+$(document).ready(function() {
+  $(".select-multi").select2();
+  $('.form-group.select.optional').removeClass('form-group');
+  $('.select2-container.select2-container-multi.form-control.select.optional').removeClass('form-control');
+  $('.select2-input').addClass('min-width');
+});

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409040416) do
+ActiveRecord::Schema.define(version: 20170410034549) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -60,8 +60,12 @@ ActiveRecord::Schema.define(version: 20170409040416) do
     t.integer  "target_id"
     t.string   "target_type"
     t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,6 +101,15 @@ ActiveRecord::Schema.define(version: 20170409040416) do
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
+  create_table "project_techniques", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "technique_id"
+    t.integer  "project_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["project_id"], name: "index_project_techniques_on_project_id", using: :btree
+    t.index ["technique_id"], name: "index_project_techniques_on_technique_id", using: :btree
+  end
+
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "url"
@@ -124,6 +137,15 @@ ActiveRecord::Schema.define(version: 20170409040416) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_rooms_on_user_id", using: :btree
+  end
+
+  create_table "technique_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "technique_id"
+    t.integer  "project_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["project_id"], name: "index_technique_projects_on_project_id", using: :btree
+    t.index ["technique_id"], name: "index_technique_projects_on_technique_id", using: :btree
   end
 
   create_table "techniques", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -170,6 +192,10 @@ ActiveRecord::Schema.define(version: 20170409040416) do
   add_foreign_key "participates", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "project_techniques", "projects"
+  add_foreign_key "project_techniques", "techniques"
   add_foreign_key "projects", "categories"
   add_foreign_key "rooms", "users"
+  add_foreign_key "technique_projects", "projects"
+  add_foreign_key "technique_projects", "techniques"
 end

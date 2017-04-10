@@ -28,7 +28,7 @@
     <!-- Checkout Process -->
     <section class="site-content site-section">
       <div class="site-block">
-          <%= form_for [:admin , Project.new], html: {id: "checkout-wizard"} do |f| %>
+          <form id="checkout-wizard" action="ecom_checkout.html" method="post">
               <!-- First Step -->
               <div id="checkout-first" class="step">
                   <!-- Step Info -->
@@ -40,32 +40,44 @@
                   </ul>
                   <!-- END Step Info -->
                   <div class="row">
-                      <div class="col-sm-12">
+                      <div class="col-sm-6">
                           <h4 class="page-header">Account</h4>
                           <div class="form-group">
-                              <label for="checkout-username">Name Project</label>
-                              <%= f.text_field :name, id: "checkout-username", name: "checkout-username", class: "form-control", placeholder: "Your name project.." %>
+                              <label for="checkout-username">Username</label>
+                              <input type="text" id="checkout-username" name="checkout-username" class="form-control" placeholder="Your username..">
                           </div>
                           <div class="form-group">
-                              <label for="checkout-email">Link deploy</label>
-                              <%= f.text_field :url, id: "checkout-deloy", name: "checkout-email", class: "form-control", placeholder: "Ex: http://fportfolio.herokuapp.com/" %>
+                              <label for="checkout-email">Email</label>
+                              <input type="email" id="checkout-email" name="checkout-email" class="form-control" placeholder="test@example.com">
                           </div>
                           <div class="form-group">
-                              <label for="checkout-password">Category</label>
-                              <%= f.select :category_id, Category.project.collect {|p| [ p.name, p.id ] }, {:include_blank => '--Select category of project--'}, class: "form-control" %>
+                              <label for="checkout-password">Password</label>
+                              <input type="password" id="checkout-password" name="checkout-password" class="form-control" placeholder="Choose a crazy one..">
                           </div>
                           <div class="form-group">
-                              <%= f.label :technique %><br />
-                               <%= collection_select(:techniques, :id, Technique.all, :id, :name, {}, {:multiple => true, class: "select-multi col-md-12"}) %>
-                          </div>
-                          <div class="form-group">
-                            <h4 class="page-header">Personal Info</h4>
-                            <div class="form-group">
-                                <%= f.text_area :description, class: "form-control ckeditor", placeholder: "Which one?" %>
-                            </div>
+                              <label for="checkout-password2">Confirm Password</label>
+                              <input type="password" id="checkout-password2" name="checkout-password2" class="form-control" placeholder="..and confirm it!">
                           </div>
                       </div>
-
+                      <div class="col-sm-6">
+                          <h4 class="page-header">Personal Info</h4>
+                          <div class="form-group">
+                              <label for="checkout-firstname">Firstname</label>
+                              <input type="text" id="checkout-firstname" name="checkout-firstname" class="form-control" placeholder="John..">
+                          </div>
+                          <div class="form-group">
+                              <label for="checkout-lastname">Lastname</label>
+                              <input type="text" id="checkout-lastname" name="checkout-lastname" class="form-control" placeholder="Doe..">
+                          </div>
+                          <div class="form-group">
+                              <label for="checkout-country">Country</label>
+                              <input type="text" id="checkout-country" name="checkout-country" class="form-control" placeholder="Where do you live?">
+                          </div>
+                          <div class="form-group">
+                              <label for="checkout-city">City</label>
+                              <input type="text" id="checkout-city" name="checkout-city" class="form-control" placeholder="Which one?">
+                          </div>
+                      </div>
                   </div>
               </div>
               <!-- END First Step -->
@@ -245,7 +257,7 @@
                               </tr>
                               <tr>
                                   <td>
-                                      <img src="framgia.jpg" alt="" style="width: 180px;">
+                                      <img src="img/placeholders/photos/photo34.jpg" alt="" style="width: 180px;">
                                   </td>
                                   <td>
                                       <strong>PID.9874</strong><br>
@@ -310,7 +322,7 @@
                   <input type="submit" class="btn btn-primary" id="next" value="">
               </div>
               <!-- END Form Buttons -->
-          <% end %>
+          </form>
           <!-- END Checkout Wizard Content -->
       </div>
     </section>
