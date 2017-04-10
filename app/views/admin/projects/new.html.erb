@@ -150,44 +150,34 @@
                   </ul>
                   <!-- END Step Info -->
                   <div class="row">
-                      <div class="col-sm-6">
-                          <h4 class="page-header"><i class="fa fa-credit-card"></i> Add Credit Card</h4>
-                          <div class="form-group">
-                              <label for="checkout-payment-name">Name</label>
-                              <input type="text" id="checkout-payment-name" name="checkout-payment-name" class="form-control" placeholder="Full Name">
-                          </div>
-                          <div class="form-group">
-                              <label for="checkout-payment-number">Card Number</label>
-                              <input type="text" id="checkout-payment-number" name="checkout-payment-number" class="form-control" placeholder="0000-0000-0000-0000">
-                          </div>
-                          <div class="form-group">
-                              <div class="row">
-                                  <div class="col-xs-6">
-                                      <label for="checkout-payment-cvc">CVC</label>
-                                      <input type="text" id="checkout-payment-cvc" name="checkout-payment-cvc" class="form-control" placeholder="000">
-                                  </div>
-                                  <div class="col-xs-6">
-                                      <label for="checkout-payment-expire">Expiration Date</label>
-                                      <input type="text" id="checkout-payment-expire" name="checkout-payment-expire" class="form-control" placeholder="MM/YY">
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-sm-6">
-                          <h4 class="page-header">Other Payment Methods</h4>
-                          <div class="form-group">
-                              <label>Choose</label>
-                              <div>
-                                  <label class="radio-inline" for="checkout-payment-paypal">
-                                      <input type="radio" id="checkout-payment-paypal" name="checkout-payments" value="paypal"> <i class="fa fa-paypal"></i> Paypal
-                                  </label>
-                                  <label class="radio-inline" for="checkout-payment-prepaid">
-                                      <input type="radio" id="checkout-payment-prepaid" name="checkout-payments" value="prepaid"> Prepaid Card
-                                  </label>
-                                  <label class="radio-inline" for="checkout-payment-cash">
-                                      <input type="radio" id="checkout-payment-cash" name="checkout-payments" value="cash"> Cash
-                                  </label>
-                              </div>
+                      <div class="col-sm-12">
+                          <h4 class="page-header">Choose Feature</h4>
+                          <div class="table-responsive">
+                            <table class="table table-bordered table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">QTY</th>
+                                        <th colspan="2">Product</th>
+                                        <th class="text-right">Unit Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <% for feature in Feature.all %>
+                                    <tr>
+                                        <td class="text-center">
+                                            <span class="label label-success"><strong>1</strong></span>
+                                        </td>
+                                        <td>
+                                            <%= image_tag feature.image.url, style: "width: 180px;" %>
+                                        </td>
+                                        <td>
+                                            <strong class="text-success"><%= feature.name %></strong>
+                                        </td>
+                                        <td class="text-center"><%= check_box_tag "project[feature_ids][]", feature.id, Project.new.features.include?(feature) %></td>
+                                    </tr>
+                                  <% end %>
+                                </tbody>
+                            </table>
                           </div>
                       </div>
                   </div>
@@ -205,102 +195,35 @@
                   </ul>
                   <!-- END Step Info -->
                   <div class="table-responsive">
-                      <table class="table table-bordered table-vcenter">
-                          <thead>
-                              <tr>
-                                  <th colspan="2">Product</th>
-                                  <th class="text-center">QTY</th>
-                                  <th class="text-right">Unit Price</th>
-                                  <th class="text-right">Price</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
+                      <div class="table-responsive">
+                        <table class="table table-bordered table-vcenter general-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">QTY</th>
+                                    <th colspan="2">Product</th>
+                                    <th class="text-right">Unit Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% for user in User.all %>
+                                <tr>
+                                    <td class="text-center">
+                                        <span class="label label-success"><strong>1</strong></span>
+                                    </td>
+                                    <td>
+                                        <%= image_tag user.avatar.url, style: "width: 180px;" %>
+                                    </td>
+                                    <td>
+                                        <strong class="text-success"><%= user.name %></strong>
+                                    </td>
+                                    <td class="text-center"><%= check_box_tag "project[participate_ids][]", user.id, Project.new.participates.include?(user) %></td>
+                                </tr>
+                              <% end %>
+                            </tbody>
+                        </table>
+                      </div>
+                  </div>
 
-                                  <td>
-                                      <strong>PID.8799</strong><br>
-                                      Super Laptop 11'<br>
-                                      <strong class="text-success">In stock</strong> - 24h Delivery
-                                  </td>
-                                  <td class="text-center">
-                                      <span class="label label-success"><strong>1</strong></span>
-                                  </td>
-                                  <td class="text-right">$799,00</td>
-                                  <td class="text-right"><strong>$799,00</strong></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <img src="img/placeholders/photos/photo32.jpg" alt="" style="width: 180px;">
-                                  </td>
-                                  <td>
-                                      <strong>PID.6215</strong><br>
-                                      White Headset<br>
-                                      <strong class="text-success">In stock</strong> - 24h Delivery
-                                  </td>
-                                  <td class="text-center">
-                                      <span class="label label-success"><strong>1</strong></span>
-                                  </td>
-                                  <td class="text-right">$59,00</td>
-                                  <td class="text-right"><strong>$59,00</strong></td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <img src="framgia.jpg" alt="" style="width: 180px;">
-                                  </td>
-                                  <td>
-                                      <strong>PID.9874</strong><br>
-                                      Bluetooth<br>
-                                      <strong class="text-success">In stock</strong> - 24h Delivery
-                                  </td>
-                                  <td class="text-center">
-                                      <span class="label label-success"><strong>1</strong></span>
-                                  </td>
-                                  <td class="text-right">$49,00</td>
-                                  <td class="text-right"><strong>$49,00</strong></td>
-                              </tr>
-                              <tr>
-                                  <td colspan="4" class="text-right h4"><strong>Sub Total</strong></td>
-                                  <td class="text-right h4"><strong>$907,00</strong></td>
-                              </tr>
-                              <tr>
-                                  <td colspan="4" class="text-right h4"><strong>Shipping Cost</strong></td>
-                                  <td class="text-right h4"><strong>$0,00</strong></td>
-                              </tr>
-                              <tr>
-                                  <td colspan="4" class="text-right h4"><strong>VAT (20%)</strong></td>
-                                  <td class="text-right h4"><strong>$181,40</strong></td>
-                              </tr>
-                              <tr class="active">
-                                  <td colspan="4" class="text-right text-uppercase h4"><strong>Total Price</strong></td>
-                                  <td class="text-right text-success h4"><strong>$1088,40</strong></td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div class="row">
-                      <div class="col-sm-6 push-bit">
-                          <h4 class="page-header"><strong>Billing Address</strong></h4>
-                          <h4><strong>Jonathan Taylor</strong></h4>
-                          <address>
-                              Sunset Str 620<br>
-                              Melbourne<br>
-                              Australia, 21-842<br><br>
-                              <i class="fa fa-phone"></i> (999) 852-11111<br>
-                              <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">johnathan.taylor@example.com</a>
-                          </address>
-                      </div>
-                      <div class="col-sm-6 push-bit">
-                          <h4 class="page-header"><strong>Shipping Address</strong></h4>
-                          <h4><strong>Harry Burke</strong></h4>
-                          <address>
-                              Sunset Str 598<br>
-                              Melbourne<br>
-                              Australia, 21-852<br><br>
-                              <i class="fa fa-phone"></i> (999) 852-22222<br>
-                              <i class="fa fa-envelope-o"></i> <a href="javascript:void(0)">harry.burke@example.com</a>
-                          </address>
-                      </div>
-                  </div>
               </div>
               <!-- END Fourth Step -->
 
