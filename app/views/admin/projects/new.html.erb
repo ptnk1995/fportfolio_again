@@ -28,7 +28,7 @@
     <!-- Checkout Process -->
     <section class="site-content site-section">
       <div class="site-block">
-          <%= form_for [:admin , Project.new], html: {id: "checkout-wizard"} do |f| %>
+          <%= form_for [:admin , @project], html: {id: "checkout-wizard"} do |f| %>
               <!-- First Step -->
               <div id="checkout-first" class="step">
                   <!-- Step Info -->
@@ -44,11 +44,11 @@
                           <h4 class="page-header">Account</h4>
                           <div class="form-group">
                               <label for="checkout-username">Name Project</label>
-                              <%= f.text_field :name, id: "checkout-username", name: "checkout-username", class: "form-control", placeholder: "Your name project.." %>
+                              <%= f.text_field :name, id: "username", class: "form-control", placeholder: "Your name project.." %>
                           </div>
                           <div class="form-group">
                               <label for="checkout-email">Link deploy</label>
-                              <%= f.text_field :url, id: "checkout-deloy", name: "checkout-email", class: "form-control", placeholder: "Ex: http://fportfolio.herokuapp.com/" %>
+                              <%= f.text_field :url, id: "deloy", class: "form-control", placeholder: "Ex: http://fportfolio.herokuapp.com/" %>
                           </div>
                           <div class="form-group">
                               <label for="checkout-password">Category</label>
@@ -201,6 +201,7 @@
                                 <tr>
                                     <th class="text-center">QTY</th>
                                     <th colspan="2">Product</th>
+                                    <th>Position</th>
                                     <th class="text-right">Unit Price</th>
                                 </tr>
                             </thead>
@@ -216,7 +217,10 @@
                                     <td>
                                         <strong class="text-success"><%= user.name %></strong>
                                     </td>
-                                    <td class="text-center"><%= check_box_tag "project[participate_ids][]", user.id, Project.new.participates.include?(user) %></td>
+                                    <td>
+                                      <input type="text" id="project[participate][name]" name="project[participate][name][]" class="form-control">
+                                    </td>
+                                    <td class="text-center"><%= check_box_tag "project[participate][id][]", user.id, Project.new.participates.include?(user) %></td>
                                 </tr>
                               <% end %>
                             </tbody>
@@ -230,7 +234,7 @@
               <!-- Form Buttons -->
               <div class="form-group text-right">
                   <input type="reset" class="btn btn-danger" id="back" value="">
-                  <input type="submit" class="btn btn-primary" id="next" value="">
+                  <%= f.submit "Confirm",class: "btn btn-primary" %>
               </div>
               <!-- END Form Buttons -->
           <% end %>
@@ -243,15 +247,13 @@
     <section class="site-section site-section-light">
       <div class="row text-center">
           <div class="col-sm-5 push visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-              <span class="h3"><i class="fa fa-truck"></i> <strong>FREE SHIPPING</strong><br>24h DELIVERY</span>
+              <span class="h3"><i class="fa fa-truck"></i> <strong>ADD PROJECT</strong><br>VARIETY</span>
           </div>
           <div class="col-sm-2 push visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuickInv" data-element-offset="-100">
               <i class="fa fa-plus fa-4x"></i>
           </div>
           <div class="col-sm-5 push visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-              <span class="h3"><i class="fa fa-support"></i> <strong>FREE SUPPORT</strong><br>24/7</span>
-          </div>
-      </div>
+              <span class="h3"><i class="fa fa-support"></i> <strong>ADD MEMBER</strong><br>CREATIVE
     </section>
             <!-- END Services Info -->
 

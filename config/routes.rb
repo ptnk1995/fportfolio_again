@@ -13,13 +13,17 @@ Rails.application.routes.draw do
     end
     resources :tops
 
-  end
-  resources :rooms
-  mount ActionCable.server => '/cable'
+     resources :rooms
+    mount ActionCable.server => '/cable'
 
-  namespace :admin do
-    root "static_pages#home"
-    resources :blogs, :posts, :projects, :contacts, :abouts, :users, :techniques, :roles, :features
-    resources :categories, :errors
+    namespace :admin do
+      root "static_pages#home"
+      resources :blogs, :posts, :projects, :contacts, :abouts, :users, :techniques, :roles, :features
+      resources :categories, :errors
+      resources :roles do
+        resources :user_roles
+      end
+    end
   end
+
 end

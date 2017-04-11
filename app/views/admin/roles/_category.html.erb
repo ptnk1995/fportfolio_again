@@ -1,0 +1,22 @@
+<tr id="category-#{category.id}">
+  <td class="text-center"></td>
+  <td class="text-center">
+    <%= image_tag category.image.url, class: "img-circle", style: "width: 100px; height: 100px;" %>
+  </td>
+  <td><a href="page_ready_user_profile.html"><%= category.name %></a></td>
+  <td><a href="javascript:void(0)" class="label label-warning">Trial</a></td>
+  <td class="text-center">
+    <div class="btn-group btn-group-xs">
+      <%= link_to admin_category_path(category),
+      method: :delete, remote: true, title: "Delete",
+      data: {toggle: "tooltip", confirm: t("alert_confirm")},
+      class: "btn btn-danger" do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+      <%= link_to admin_category_path(holiday),
+        method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+        <i class="fa fa-trash">cc</i>
+      <% end %>
+    </div>
+  </td>
+</tr>

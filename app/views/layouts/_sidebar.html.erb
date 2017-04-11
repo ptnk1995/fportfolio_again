@@ -81,49 +81,70 @@
       <!-- Sidebar Navigation -->
       <ul class="sidebar-nav">
         <li>
-          <a href="index.html" class=" active"><i class="gi gi-stopwatch sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Dashboard</span></a>
+          <%= link_to admin_contacts_path(), class: " active" do %>
+            <i class="gi gi-stopwatch sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide"><%= t ".contact" %></span>
+          <% end %>
         </li>
         <li>
-          <a href="index2.html"><i class="gi gi-leaf sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Dashboard 2</span></a>
+          <%= link_to admin_projects_path() do %>
+            <i class="gi gi-leaf sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide"><%= t ".project" %></span>
+          <% end %>
         </li>
         <li>
-          <a href="" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">eCommerce</span></a>
-          <ul>
-            <li>
-              <%= link_to "Users", admin_users_path() %>
-            </li>
-            <li>
-              <%= link_to "Categories", admin_categories_path() %>
-            </li>
-            <li>
-              <%= link_to "Techniques", admin_techniques_path() %>
-            </li>
-            <li>
-              <%= link_to "Blogs", admin_posts_path() %>
-            </li>
-            <li>
-              <a href="page_ecom_product_edit.html">Product Edit</a>
-            </li>
-            <li>
-              <a href="page_ecom_customer_view.html">Customer View</a>
-            </li>
-          </ul>
+          <%= link_to admin_posts_path() do %>
+            <i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide"><%= t ".blog" %></span>
+          <% end %>
         </li>
         <li class="sidebar-header">
           <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
-          <span class="sidebar-header-title">Widget Kit</span>
+          <span class="sidebar-header-title"><%= t ".manager_user" %></span>
         </li>
         <li>
-          <a href="page_widgets_stats.html"><i class="gi gi-charts sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Statistics</span></a>
+          <%= link_to admin_users_path() do %>
+            <i class="gi gi-charts sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">
+              <%= t ".users" %>
+            </span>
+          <% end %>
         </li>
         <li>
-          <a href="page_widgets_social.html"><i class="gi gi-share_alt sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Social</span></a>
+          <%= link_to admin_roles_path() do %>
+            <i class="gi gi-share_alt sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">
+              <%= t ".roles" %>
+            </span>
+          <% end %>
+        </li>
+        <li class="sidebar-header">
+          <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
+          <span class="sidebar-header-title"><%= t ".manager_catelogue" %></span>
+        </li>
+         <li>
+          <%= link_to admin_categories_path() do %>
+            <i class="gi gi-charts sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">
+              <%= t ".categories" %>
+            </span>
+          <% end %>
         </li>
         <li>
-          <a href="page_widgets_media.html"><i class="gi gi-film sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Media</span></a>
+          <%= link_to admin_techniques_path() do %>
+            <i class="gi gi-charts sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">
+              <%= t ".techniques" %>
+            </span>
+          <% end %>
         </li>
         <li>
-          <a href="page_widgets_links.html"><i class="gi gi-link sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Links</span></a>
+          <%= link_to admin_features_path() do %>
+            <i class="gi gi-share_alt sidebar-nav-icon"></i>
+            <span class="sidebar-nav-mini-hide">
+              <%= t ".features" %>
+            </span>
+          <% end %>
         </li>
         <li class="sidebar-header">
           <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
@@ -431,32 +452,6 @@
         </li>
       </ul>
       <!-- END Sidebar Navigation -->
-      <!-- Sidebar Notifications -->
-      <div class="sidebar-header sidebar-nav-mini-hide">
-        <span class="sidebar-header-options clearfix">
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Refresh"><i class="gi gi-refresh"></i></a>
-        </span>
-        <span class="sidebar-header-title">Activity</span>
-      </div>
-      <div class="sidebar-section sidebar-nav-mini-hide">
-        <div class="alert alert-success alert-alt">
-          <small>5 min ago</small><br>
-          <i class="fa fa-thumbs-up fa-fw"></i> You had a new sale ($10)
-        </div>
-        <div class="alert alert-info alert-alt">
-          <small>10 min ago</small><br>
-          <i class="fa fa-arrow-up fa-fw"></i> Upgraded to Pro plan
-        </div>
-        <div class="alert alert-warning alert-alt">
-          <small>3 hours ago</small><br>
-          <i class="fa fa-exclamation fa-fw"></i> Running low on space<br><strong>18GB in use</strong> 2GB left
-        </div>
-        <div class="alert alert-danger alert-alt">
-          <small>Yesterday</small><br>
-          <i class="fa fa-bug fa-fw"></i> <a href="javascript:void(0)"><strong>New bug submitted</strong></a>
-        </div>
-      </div>
-      <!-- END Sidebar Notifications -->
     </div>
     <!-- END Sidebar Content -->
   </div>

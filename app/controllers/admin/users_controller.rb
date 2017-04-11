@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:create]
+  authorize_resource
   # before_action :authenticate_user!
 
   layout "admin"
@@ -46,7 +47,6 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :phone, :avatar, :email, :user_name,
-      :password, :password_confirmation).merge(password: "123456")
+    params.require(:user).permit(:name, :phone, :avatar, :email, :user_name).merge(password: "123456")
   end
 end

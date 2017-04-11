@@ -12,5 +12,9 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, ImageUploader
 
+  validates :name, presence: true, length: {maximum: 50}
+
+  scope :order_by_newest, ->{order created_at: :desc}
+
   ROLES = {admin: "Admin", user: "User"}
 end

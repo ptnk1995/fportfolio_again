@@ -3,3 +3,4 @@ en:
     categories:
       index:
         add: "Add categories"
+        alert_confirm: "Are you sure? If you delete this category, the dependences will be deleted"

@@ -36,7 +36,7 @@
               <i class="fa fa-pencil"></i>
             <% end %>
             <%= link_to admin_post_path(post), title: "Delete",
-              method: :delete, class: "btn btn-sm btn-alt btn-primary", data: {toggle: "tooltip", confirm: t("alert_confirm")} do %>
+              method: :delete, class: "btn btn-sm btn-alt btn-primary", data: {toggle: "tooltip", confirm: t(".alert_confirm")} do %>
               <i class="fa fa-times"></i>
             <% end %>
           </div>
@@ -47,7 +47,7 @@
             <%= image_tag "framgia.jpg", class: "img-circle", style: "width: 35px; height: 35px;" %>
             <%= link_to post.user.name, "", style: "padding-left: 5px;" %>
           </div>
-          <div style="float: right;"><%= link_to "Lap trinh di dong", "" , class: "label label-warning"%></div>
+          <div style="float: right;"><%= link_to post.category.name, "" , class: "label label-warning"%></div>
           <div class="clearfix"></div>
         </div>
       </div>

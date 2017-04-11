@@ -7,7 +7,7 @@
   </div>
   <div class="form-group">
     <%= f.label :category, t(".name"), class: "field-compulsory-before" %>
-    <%= f.select :category_id, Category.blog.collect {|p| [ p.name, p.id ] }, {}, class: "form-control" %>
+    <%= f.select :category_id, Category.blog.collect {|p| [ p.name, p.id ] }, {}, class: "form-control", required: true %>
   </div>
   <div class="form-group">
     <%= f.label :content, t(".name"), class: "field-compulsory-before" %>

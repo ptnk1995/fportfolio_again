@@ -1,0 +1,30 @@
+<%= javascript_include_tag "admin/plugins.js", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "admin/app.js", 'data-turbolinks-track': 'reload' %>
+  <div class="block">
+    <div class="block-title">
+      <h2><strong>Table</strong> Styles</h2>
+    </div>
+    <div class="table-options clearfix">
+      <div class="btn-group btn-group-sm pull-right">
+        <button class="btn btn-primary" data-toggle="modal"
+          data-target="#new_category">
+          <i class="gi gi-plus"></i> <%= t".add" %>
+        </button>
+      </div>
+      <div class="btn-group btn-group-sm pull-left" data-toggle="buttons">
+        <label id="style-default" class="btn btn-primary active" data-toggle="tooltip" title=".table">
+        <input type="radio" name="style-options"> Default
+        </label>
+        <label id="style-bordered" class="btn btn-primary" data-toggle="tooltip" title=".table-bordered">
+        <input type="radio" name="style-options"> Bordered
+        </label>
+        <label id="style-borderless" class="btn btn-primary" data-toggle="tooltip" title=".table-borderless">
+        <input type="radio" name="style-options"> Borderless
+        </label>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <%= render "form" %>
+    </div>
+  </div>

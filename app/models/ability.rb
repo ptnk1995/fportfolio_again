@@ -5,8 +5,7 @@ class Ability
      user ||= User.new
     if user && (user.has_role? User::ROLES[:admin])
       can :manage, :all
-      #binding.pry
-     # can [:create,:update, :destroy], [Project, Category, User, Technique]
+     can [:index, :show, :create,:update, :destroy], [Project, Category, User, Technique, Role]
     else
       can :read, :all
     end
