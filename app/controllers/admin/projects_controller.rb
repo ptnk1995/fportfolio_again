@@ -12,8 +12,6 @@ class Admin::ProjectsController < ApplicationController
 
   def create
     @project = Project.new project_params
-          binding.pry
-
     if @project.save
       flash[:success] = t "create_success"
       redirect_to admin_projects_path
@@ -25,15 +23,10 @@ class Admin::ProjectsController < ApplicationController
   def show
   end
 
-  def create
-  end
-
   private
   def project_params
-        binding.pry
-
     technique_ids = params[:techniques][:id]
     feature_ids = params[:project][:feature_ids]
-    params.require(:project).permit(:name, :url, :category_id, :description).merge! feature_ids: feature_ids, technique_ids: techniques_ids
+    params.require(:project).permit(:name, :url, :category_id, :description).merge! feature_ids: feature_ids, technique_ids: technique_ids
   end
 end
