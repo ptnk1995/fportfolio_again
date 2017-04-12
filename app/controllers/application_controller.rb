@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout
   before_filter :set_locale
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def layout
     is_a?(Devise::SessionsController) ? false : "application"
@@ -35,5 +36,9 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Access denied"
     redirect_to admin_errors_path()
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:name, :password,:email)}
   end
 end
