@@ -1,0 +1,211 @@
+<%= form_for [:admin , @project], html: {id: "checkout-wizard"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+    <!-- First Step -->
+    <div id="checkout-first" class="step">
+        <!-- Step Info -->
+        <ul class="nav nav-pills nav-justified checkout-steps push-bit">
+            <li class="active"><a href="javascript:void(0)" data-gotostep="checkout-first"><strong>1. INFO</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-second"><strong>2. IMAGE</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-third"><strong>3. FEATURES</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-fourth"><strong>4. ADD MEMBER</strong></a></li>
+        </ul>
+        <!-- END Step Info -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-header">Account</h4>
+                <div class="form-group">
+                    <label for="checkout-username">Name Project</label>
+                    <%= f.text_field :name, id: "username", class: "form-control", placeholder: "Your name project.." %>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-email">Link deploy</label>
+                    <%= f.text_field :url, id: "deloy", class: "form-control", placeholder: "Ex: http://fportfolio.herokuapp.com/" %>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-password">Category</label>
+                    <%= f.select :category_id, Category.project.collect {|p| [ p.name, p.id ] }, {:include_blank => '--Select category of project--'}, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :technique %><br />
+                     <%= collection_select(:techniques, :id, Technique.all, :id, :name, {}, {:multiple => true, class: "select-multi col-md-12"}) %>
+                </div>
+                <div class="form-group">
+                  <h4 class="page-header">Personal Info</h4>
+                  <div class="form-group">
+                      <%= f.text_area :description, class: "form-control ckeditor", placeholder: "Which one?" %>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- END First Step -->
+
+    <!-- Second Step -->
+    <div id="checkout-second" class="step">
+        <!-- Step Info -->
+        <ul class="nav nav-pills nav-justified checkout-steps push-bit">
+            <li><a href="javascript:void(0)" data-gotostep="checkout-first"><strong>1. INFO</strong></a></li>
+            <li class="active"><a href="javascript:void(0)" data-gotostep="checkout-second"><strong>2. IMAGE</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-third"><strong>3. FEATURES</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-fourth"><strong>4. ADD MEMBER</strong></a></li>
+        </ul>
+        <!-- END Step Info -->
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="page-header">Billing Address</h4>
+                <div class="form-group">
+                    <label for="checkout-billing-name">Name</label>
+                    <input type="text" id="checkout-billing-name" name="checkout-billing-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-billing-address1">Address 1</label>
+                    <input type="text" id="checkout-billing-address1" name="checkout-billing-address1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-billing-address1">Address 2</label>
+                    <input type="text" id="checkout-billing-address2" name="checkout-billing-address2" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-billing-postal">Postal Code</label>
+                    <input type="text" id="checkout-billing-postal" name="checkout-billing-postal" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-billing-phone">Phone</label>
+                    <input type="text" id="checkout-billing-phone" name="checkout-billing-phone" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-billing-address1">City</label>
+                    <input type="text" id="checkout-billing-city" name="checkout-billing-city" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h4 class="page-header">Shipping Address</h4>
+                <div class="form-group">
+                    <label for="checkout-shipping-name">Name</label>
+                    <input type="text" id="checkout-shipping-name" name="checkout-shipping-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-shipping-address1">Address 1</label>
+                    <input type="text" id="checkout-shipping-address1" name="checkout-shipping-address1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-shipping-address1">Address 2</label>
+                    <input type="text" id="checkout-shipping-address2" name="checkout-shipping-address2" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-shipping-postal">Postal Code</label>
+                    <input type="text" id="checkout-shipping-postal" name="checkout-shipping-postal" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-shipping-phone">Phone</label>
+                    <input type="text" id="checkout-shipping-phone" name="checkout-shipping-phone" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="checkout-shipping-address1">City</label>
+                    <input type="text" id="checkout-shipping-city" name="checkout-shipping-city" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Second Step -->
+
+    <!-- Third Step -->
+    <div id="checkout-third" class="step">
+        <!-- Step Info -->
+        <ul class="nav nav-pills nav-justified checkout-steps push-bit">
+            <li><a href="javascript:void(0)" data-gotostep="checkout-first"><strong>1. INFO</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-second"><strong>2. IMAGE</strong></a></li>
+            <li class="active"><a href="javascript:void(0)" data-gotostep="checkout-third"><strong>3. FEATURES</strong></a></li>
+            <li><a href="javascript:void(0)" data-gotostep="checkout-fourth"><strong>4. ADD MEMBER</strong></a></li>
+        </ul>
+        <!-- END Step Info -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-header">Choose Feature</h4>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-vcenter">
+                      <thead>
+                          <tr>
+                              <th class="text-center">QTY</th>
+                              <th colspan="2">Product</th>
+                              <th class="text-right">Unit Price</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <% for feature in Feature.all %>
+                          <tr>
+                              <td class="text-center">
+                                  <span class="label label-success"><strong>1</strong></span>
+                              </td>
+                              <td>
+                                  <%= image_tag feature.image.url, style: "width: 180px;" %>
+                              </td>
+                              <td>
+                                  <strong class="text-success"><%= feature.name %></strong>
+                              </td>
+                              <td class="text-center"><%= check_box_tag "project[feature_ids][]", feature.id, Project.new.features.include?(feature) %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Third Step -->
+
+    <!-- Fourth Step -->
+    <div id="checkout-fourth" class="step">
+        <!-- Step Info -->
+        <ul class="nav nav-pills nav-justified checkout-steps push-bit">
+          <li><a href="javascript:void(0)" data-gotostep="checkout-first"><strong>1. INFO</strong></a></li>
+          <li><a href="javascript:void(0)" data-gotostep="checkout-second"><strong>2. IMAGE</strong></a></li>
+          <li><a href="javascript:void(0)" data-gotostep="checkout-third"><strong>3. FEATURES</strong></a></li>
+          <li class="active"><a href="javascript:void(0)" data-gotostep="checkout-fourth"><strong>4. ADD MEMBER</strong></a></li>
+        </ul>
+        <!-- END Step Info -->
+        <div class="table-responsive">
+            <div class="table-responsive">
+              <table class="table table-bordered table-vcenter general-table">
+                  <thead>
+                      <tr>
+                          <th class="text-center">QTY</th>
+                          <th colspan="2">Product</th>
+                          <th>Position</th>
+                          <th class="text-right">Unit Price</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <% for user in User.all %>
+                      <tr>
+                          <td class="text-center">
+                              <span class="label label-success"><strong>1</strong></span>
+                          </td>
+                          <td>
+                              <%= image_tag user.avatar.url, style: "width: 180px;" %>
+                          </td>
+                          <td>
+                              <strong class="text-success"><%= user.name %></strong>
+                          </td>
+                          <td>
+                            <input type="text" id="project[participate][name]" name="project[participate][name][]" class="form-control">
+                          </td>
+                          <td class="text-center"><%= check_box_tag "project[participate][id][]", user.id, Project.new.participates.include?(user) %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+              </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- END Fourth Step -->
+
+    <!-- Form Buttons -->
+    <div class="form-group text-right">
+        <input type="reset" class="btn btn-danger" id="back" value="">
+        <%= f.submit "Confirm",class: "btn btn-primary" %>
+    </div>
+    <!-- END Form Buttons -->
+<% end %>

@@ -1,0 +1,98 @@
+<div class="block">
+  <div class="block-title">
+    <h2><strong>Table</strong> Styles</h2>
+  </div>
+  <div class="table-options clearfix">
+    <div class="btn-group btn-group-sm pull-right">
+      <%= link_to new_admin_project_path(), class: "btn btn-primary" do %>
+        <i class="gi gi-plus"></i> Add
+      <% end %>
+    </div>
+    <div class="btn-group btn-group-sm pull-left" data-toggle="buttons">
+      <label id="style-default" class="btn btn-primary active" data-toggle="tooltip" title=".table">
+      <input type="radio" name="style-options"> Default
+      </label>
+      <label id="style-bordered" class="btn btn-primary" data-toggle="tooltip" title=".table-bordered">
+      <input type="radio" name="style-options"> Bordered
+      </label>
+
+      <label id="style-borderless" class="btn btn-primary" data-toggle="tooltip" title=".table-borderless">
+      <input type="radio" name="style-options"> Borderless
+      </label>
+    </div>
+  </div>
+  <div class="row">
+  <% unless @projects.nil? %>
+    <% @projects.each_with_index do |project, index| %>
+      <div class="col-sm-4 block-section text-center">
+        <!-- Just wrap your image with a div.gallery-image and.. -->
+        <div class="gallery-image">
+          <!-- .. add your image.. -->
+          <%= image_tag "", class: "img-responsive", style: "height: 170px;" %>
+          <!-- .. along with a div.gallery-image-options which will contain your hover links! -->
+          <div class="gallery-image-options">
+            <!-- Link to your large image with the attribute data-toggle="lightbox-image" -->
+            <a href="" data-toggle="lightbox-image" title="<%= project.name %>" class="gallery-link btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+            <%= link_to edit_admin_project_path(project), title: "Edit", class: "btn btn-sm btn-alt btn-primary", data: {toggle: "tooltip"} do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to admin_project_path(project), title: "Delete",
+              method: :delete, class: "btn btn-sm btn-alt btn-primary", data: {toggle: "tooltip", confirm: t(".alert_confirm")} do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          </div>
+        </div>
+        <h4 class="sub-header"><%= link_to project.name, "" %></h4>
+        <div style="margin-top: 5px;">
+          <div style="float: left;">
+            <%= image_tag "framgia.jpg", class: "img-circle", style: "width: 35px; height: 35px;" %>
+            <%= link_to project.participates.count, "", style: "padding-left: 5px;" %>
+          </div>
+          <div style="float: right;"><%= link_to project.category.name, "" , class: "label label-warning"%></div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+<div id="arr_chart_blog" class="hidden"><%= @arr %></div>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<div id="container" style="height: 400px"></div>
+<script type="text/javascript">
+  var compute_blog = JSON.parse($('#arr_chart_blog').html());
+  Highcharts.chart('container', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+        }
+    },
+    title: {
+        text: 'PERCENT BLOG GROUP BY CATEGORY'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'About',
+        data: compute_blog
+    }]
+});
+</script>

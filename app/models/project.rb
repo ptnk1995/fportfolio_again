@@ -5,7 +5,9 @@ class Project < ApplicationRecord
   has_many :technique_projects, dependent: :destroy
   has_many :techniques, through: :technique_projects
   has_many :participates, dependent: :destroy
-  has_many :images
+  has_many :images, as: :target
+
+  validates :category, presence: true
 
   accepts_nested_attributes_for :participates, allow_destroy: true
 end
