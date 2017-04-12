@@ -54,3 +54,51 @@
     <% end %>
   </div>
 </div>
+<div class="hidden">
+
+<%=
+  @name_category_blog = Category.blog.pluck(:name)
+  @b = [1,2]
+  @arr = @name_category_blog.zip(@count)
+%>
+</div>
+<div id="arr_chart_blog" class="hidden"><%= @arr %></div>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<div id="container" style="height: 400px"></div>
+<script type="text/javascript">
+  var compute_blog = JSON.parse($('#arr_chart_blog').html());
+  Highcharts.chart('container', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+        }
+    },
+    title: {
+        text: 'PERCENT BLOG GROUP BY CATEGORY'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'About',
+        data: compute_blog
+    }]
+});
+</script>

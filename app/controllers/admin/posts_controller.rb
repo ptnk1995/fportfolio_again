@@ -3,6 +3,10 @@ class Admin::PostsController < ApplicationController
   load_and_authorize_resource except: [:create, :index]
   def index
     @posts = Post.all
+    @count = []
+    Category.blog.each do |category|
+      @count.push(Post.where(category_id: category.id).count)
+    end
   end
 
   def new
