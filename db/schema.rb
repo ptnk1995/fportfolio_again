@@ -12,22 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170412064412) do
 
-  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "trackable_type"
-    t.integer  "trackable_id"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.string   "key"
-    t.text     "parameters",     limit: 65535
-    t.string   "recipient_type"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
-    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
-    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
-  end
-
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "target_type"
@@ -136,10 +120,10 @@ ActiveRecord::Schema.define(version: 20170412064412) do
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "user_id"
+    t.integer  "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_rooms_on_user_id", using: :btree
+    t.index ["project_id"], name: "index_rooms_on_project_id", using: :btree
   end
 
   create_table "technique_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -196,7 +180,6 @@ ActiveRecord::Schema.define(version: 20170412064412) do
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "projects", "categories"
-  add_foreign_key "rooms", "users"
   add_foreign_key "technique_projects", "projects"
   add_foreign_key "technique_projects", "techniques"
 end

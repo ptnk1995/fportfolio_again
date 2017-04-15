@@ -190,9 +190,9 @@
                           </td>
                           <td>
 
-                          <%= text_field_tag "project[participate][#{user.id}][name]", nil, class: "form-control" %>
+                          <%= text_field_tag "project[participate][#{user.id}][name]", @project.users.include?(user) ? user.name : nil, class: "form-control" %>
                           </td>
-                          <td class="text-center"><%= check_box_tag "project[participate][#{user.id}][id]", user.id, Project.new.participates.include?(user) %></td>
+                          <td class="text-center"><%= check_box_tag "project[participate][#{user.id}][id]", user.id, @project.users.include?(user) %></td>
                       </tr>
                     <% end %>
                   </tbody>

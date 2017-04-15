@@ -1,8 +1,7 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   load_and_authorize_resource except: [:create]
   authorize_resource
 
-  layout "admin"
   before_action :create_category, only: [:index, :new]
   #before_action :load_category, except: [:index]
 

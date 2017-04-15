@@ -1,8 +1,7 @@
-class Admin::FeaturesController < ApplicationController
+class Admin::FeaturesController < Admin::BaseController
   load_and_authorize_resource except: [:create]
   authorize_resource
 
-  layout "admin"
   before_action :create_feature, only: [:index, :new]
 
   def index

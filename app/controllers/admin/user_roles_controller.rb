@@ -1,5 +1,4 @@
-class Admin::UserRolesController < ApplicationController
-  layout 'admin'
+class Admin::UserRolesController < Admin::BaseController
 
   def index
   end

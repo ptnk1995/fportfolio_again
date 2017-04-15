@@ -1,8 +1,7 @@
-class Admin::TechniquesController < ApplicationController
+class Admin::TechniquesController < Admin::BaseController
   load_and_authorize_resource except: [:create]
   authorize_resource
 
-  layout "admin"
   before_action :create_technique, only: [:index, :new]
   before_action :load_technique, except: [:index]
   def index

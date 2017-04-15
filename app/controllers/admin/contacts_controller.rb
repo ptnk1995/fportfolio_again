@@ -1,5 +1,4 @@
-class Admin::ContactsController < ApplicationController
-  layout "admin"
+class Admin::ContactsController < Admin::BaseController
 
   def index
   end

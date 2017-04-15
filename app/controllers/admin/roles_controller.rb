@@ -1,8 +1,7 @@
-class Admin::RolesController < ApplicationController
+class Admin::RolesController < Admin::BaseController
   load_and_authorize_resource except: [:create]
   authorize_resource
 
-  layout "admin"
   before_action :create_role, only: [:index, :new]
 
   def index

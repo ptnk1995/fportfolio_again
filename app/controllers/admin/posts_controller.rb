@@ -1,5 +1,5 @@
-class Admin::PostsController < ApplicationController
-  layout "admin"
+class Admin::PostsController < Admin::BaseController
+
   load_and_authorize_resource except: [:create, :index]
   def index
     @posts = Post.all
