@@ -39,28 +39,16 @@
           <!-- Info -->
           <div class="col-sm-6 push-bit">
             <div class="clearfix">
-              <div class="pull-right">
-                <span class="h2"><strong>$ 69</strong></span>
-              </div>
               <span class="h4"><strong class="text-success">IN STOCK</strong><br><small>15 Available</small></span>
             </div>
             <hr>
             <%= social_share_button_tag("Fprotfolio Framgia", :url => "http://myapp.com/foo/bar", :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
-            <%= social_share_button_tag("Fprotfolio Framgia", :url => request.original_url, :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
             <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
             <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
             <hr>
 
             <form action="ecom_shopping_cart.html" method="post" class="form-inline push-bit text-right">
-              <select id="ecom-addcart-size" name="ecom-addcart-size" class="form-control" size="1">
-                <option value="0" disabled selected>SIZE</option>
-                <option value="xs">XS</option>
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
-              </select>
+
               <%= link_to "Meet team", project_teams_path(project_id: 1), class: "btn btn-primary" %>
             </form>
           </div>

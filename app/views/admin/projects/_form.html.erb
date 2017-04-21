@@ -29,6 +29,10 @@
                     <%= f.label :technique %><br />
                      <%= collection_select(:techniques, :id, Technique.all, :id, :name, {}, {:multiple => true, class: "select-multi col-md-12"}) %>
                 </div>
+               <!--  <div class="form-group">
+                    <%= f.label :technique %><br />
+                     <%= f.file_field :images, multiple: true %>
+                </div> -->
                 <div class="form-group">
                   <h4 class="page-header">Personal Info</h4>
                   <div class="form-group">
@@ -127,9 +131,10 @@
                   <table class="table table-bordered table-vcenter">
                       <thead>
                           <tr>
-                              <th class="text-center">QTY</th>
-                              <th colspan="2">Product</th>
-                              <th class="text-right">Unit Price</th>
+                              <th class="text-center">Index</th>
+                              <th></th>
+                              <th colspan="2">Feature</th>
+                              <th class="text-right">Choice</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -139,7 +144,7 @@
                                   <span class="label label-success"><strong>1</strong></span>
                               </td>
                               <td>
-                                  <%= image_tag feature.image.url, style: "width: 180px;" %>
+                                  <%= image_tag feature.image.url, style: "width: 100px; border-radius: 50%; height: 100px;" %>
                               </td>
                               <td>
                                   <strong class="text-success"><%= feature.name %></strong>
@@ -170,17 +175,17 @@
               <table class="table table-bordered table-vcenter general-table">
                   <thead>
                       <tr>
-                          <th class="text-center">QTY</th>
-                          <th colspan="2">Product</th>
+                          <th class="text-center">Index</th>
+                          <th colspan="2">User</th>
                           <th>Position</th>
-                          <th class="text-right">Unit Price</th>
+                          <th class="text-right">Choice</th>
                       </tr>
                   </thead>
                   <tbody>
                     <% for user in User.all %>
                       <tr>
                           <td class="text-center">
-                              <span class="label label-success"><strong>1</strong></span>
+                              <span class="label label-success"><strong><%= user.id %></strong></span>
                           </td>
                           <td>
                               <%= image_tag user.avatar.url, style: "width: 180px;" %>

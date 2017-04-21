@@ -1,4 +1,4 @@
-<%= form_for [:admin, @user] do |f| %>
+<%= simple_form_for [:admin, @user] do |f| %>
   <div class="form-group">
     <div class="row">
       <div class="col-md-6">
@@ -20,7 +20,20 @@
         <%= f.text_field :phone, class: "form-control" %>
       </div>
     </div>
-      <%= f.file_field :avatar %>
+    <%= f.file_field :avatar %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.label :role %>
+        <%= f.association :roles, label: false, collection: Role.all,
+                priority: @user.roles, input_html: {class: "select-multi"} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
     <div class="row">
       <div style="float: right; margin-top: 10px; margin-right: 1%;">
         <%= f.submit "Submit", class: "btn btn-primary" %>

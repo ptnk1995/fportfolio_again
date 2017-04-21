@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       root "static_pages#home"
       resources :blogs, :posts, :projects, :contacts, :abouts, :users, :techniques, :roles, :features
       resources :categories, :errors
-      resources :roles do
+      resources :users do
         resources :user_roles
       end
     end

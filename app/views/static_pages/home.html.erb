@@ -64,8 +64,12 @@
 <section class="site-content site-section">
   <div class="container">
     <div class="site-block text-center">
-      <a href="http://goo.gl/TDOSuC" class="btn btn-lg btn-success"><i class="fa fa-shopping-cart"></i> Purchase ProUI ($21)</a>
-      <a href="http://pixelcave.com/demo/proui" class="btn btn-lg btn-primary"><i class="fa fa-share"></i> Live Preview</a>
+      <%= link_to "", class: "btn btn-lg btn-success" do %>
+        <i class="fa fa-share"></i> List project
+      <% end %>
+      <%= link_to "", class: "btn btn-lg btn-primary" do %>
+        <i class="fa fa-share"></i> Contact
+      <% end %>
     </div>
     <hr>
   </div>
@@ -76,7 +80,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-        <!--   <img src="img/placeholders/screenshots/promo_desktop_left.png" alt="Promo #1" class="img-responsive"> -->
+        <%= image_tag "promo_desktop_left.png", class: "img-responsive" %>
       </div>
       <div class="col-sm-6 col-md-5 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
         <h3 class="h2 site-heading site-heading-promo"><strong>Clean and Modern</strong> Design</h3>
@@ -96,7 +100,7 @@
         <p class="promo-content">ProUI has a powerful and flexible layout to meet every need. It comes packed with 9 awesome and fresh color themes that you will love, too. <a href="features.html">Learn More..</a></p>
       </div>
       <div class="col-sm-6 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-        <!-- <img src="img/placeholders/screenshots/promo_desktop_right.png" alt="Promo #2" class="img-responsive"> -->
+        <%= image_tag "promo_desktop_right", class: "img-responsive" %>
       </div>
     </div>
     <hr>
@@ -108,7 +112,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-        <!--  <img src="img/placeholders/screenshots/promo_tablet.png" alt="Promo #3" class="img-responsive"> -->
+        <%= image_tag "promo_tablet.png" %>
       </div>
       <div class="col-sm-6 col-md-5 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
         <h3 class="h2 site-heading site-heading-promo"><strong>Fully</strong> Responsive</h3>
@@ -128,7 +132,7 @@
         <p class="promo-content">The layout adjusts as we move up from mobile devices to large desktop screens and not the other way around. This speed things up a lot. <a href="features.html">Learn More..</a></p>
       </div>
       <div class="col-sm-6 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-        <!--  <img src="img/placeholders/screenshots/promo_mobile.png" alt="Promo #4" class="img-responsive"> -->
+        <%= image_tag "promo_mobile.png", class: "img-responsive" %>
       </div>
     </div>
     <hr>

@@ -20,8 +20,6 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-
-
   def edit; end
 
   def update
@@ -45,6 +43,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:name, :phone, :avatar, :email, :user_name).merge(password: "123456")
+    role_ids = params[:user][:role_ids]
+    params.require(:user).permit(:name, :phone, :avatar, :email, :user_name, :password).merge! role_ids: role_ids
   end
 end
