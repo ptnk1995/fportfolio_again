@@ -5,10 +5,10 @@ class ContactMailer < ApplicationMailer
   #
   #   en.contact_mailer.user_send_contact.subject
   #
-  def user_send_contact(contact)
+  def user_send_contact contact
 
     @contact = contact
 
-    mail(to: "nguyenphuoctiendn@gmail.com", subject: "test")
+    mail(to: "nguyenphuoctiendn@gmail.com", subject: @contact.title)
   end
 end
