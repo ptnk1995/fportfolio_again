@@ -6,4 +6,9 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :category, presence: true
   mount_uploader :image, ImageUploader
+
+  scope :recent, ->{order created_at: :desc}
+  scope :except_id, ->id do
+    where("id != ?", id).limit Settings.related_item
+  end
 end

@@ -56,7 +56,8 @@ gem 'ckeditor'
 gem 'fog',                     '1.38.0'
 gem 'nprogress-rails'
 gem 'simple_form'
-
+gem "kaminari"
+gem "kaminari-bootstrap", "~> 3.0.1"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "pry-rails"

@@ -10,3 +10,4 @@ logs:
   admin_log_path: "log/admin.log"
   log_dir: "log"
   last_ten: 10
+per_page: 3

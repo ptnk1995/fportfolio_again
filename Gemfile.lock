@@ -185,7 +185,7 @@ GEM
     fog-profitbricks (3.0.0)
       fog-core (~> 1.42)
       fog-json (~> 1.0)
-    fog-rackspace (0.1.4)
+    fog-rackspace (0.1.5)
       fog-core (>= 1.35)
       fog-json (>= 1.0)
       fog-xml (>= 0.1)
@@ -252,6 +252,21 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (2.1.0)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
+    kaminari-core (1.0.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -391,6 +406,8 @@ DEPENDENCIES
   jquery-datatables-rails
   jquery-rails
   jquery-turbolinks
+  kaminari
+  kaminari-bootstrap (~> 3.0.1)
   listen (~> 3.0.5)
   mini_magick (= 4.5.1)
   mysql2 (>= 0.3.18, < 0.5)

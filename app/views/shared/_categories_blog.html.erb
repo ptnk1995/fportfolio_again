@@ -1,12 +1,10 @@
 <div class="sidebar-block">
-  <h4 class="site-heading"><strong>News</strong> Categories</h4>
-  <ul class="fa-ul ul-breath">
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Updates</a></li>
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Special Offers</a></li>
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Products</a></li>
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Features</a></li>
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Articles</a></li>
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Tutorials</a></li>
-    <li><i class="fa fa-angle-right fa-li"></i> <a href="javascript:void(0)">Guides</a></li>
-  </ul>
+  <h4 class="site-heading"><strong>Categories</strong></h4>
+  <% @categories.each do |category| %>
+    <div class="content-float clearfix">
+      <%= image_tag "avatar/avatar1.jpg", class: "img-circle pull-left" %>
+      <h5><b><%= link_to category.name, blogs_path(category: category.id) %></b></h5>
+    </div>
+  <% end %>
 </div>
+
