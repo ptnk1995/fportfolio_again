@@ -28,3 +28,6 @@ vi:
   explore_project: "Khám phá hơn 5000 dự án!"
   error: "Lỗi"
   the_form_contains: "Form này có "
+  time:
+    formats:
+      long: "%d/%m/%Y"

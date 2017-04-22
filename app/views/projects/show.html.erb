@@ -1,9 +1,10 @@
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top themed-background-dark">
   <div class="container text-center">
-    <h1 class="animation-slideDown"><strong>Blue Jacket</strong></h1>
+    <h1 class="animation-slideDown"><strong><%= @project.name %></strong></h1>
   </div>
 </section>
+
 <!-- END Intro -->
 <!-- Product View -->
 <section class="site-content site-section">
@@ -39,10 +40,11 @@
           <!-- Info -->
           <div class="col-sm-6 push-bit">
             <div class="clearfix">
-              <span class="h4"><strong class="text-success">IN STOCK</strong><br><small>15 Available</small></span>
+              <span class="h4"><strong class="text-success"><%= @project.name %></strong><br>
+              <small><%= l @project.created_at, format: :long %></small></span>
             </div>
             <hr>
-            <%= social_share_button_tag("Fprotfolio Framgia", :url => "http://myapp.com/foo/bar", :image => "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-0/q91/p235x350/17553989_1824601584466403_8884191656684475969_n.jpg?oh=cc80d8f962be23d967e5e14b89f83c7f&oe=59544AC7") %>
+            <%= social_share_button_tag("Fprotfolio Framgia", :url => "http://brs35framgia.herokuapp.com/books?category=3", :image => "http://brs35framgia.herokuapp.com/assets/book1-277127914e95ab2fd02094a8cee15b1936db81e25464dce7e98e7895597531f0.jpg") %>
             <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
             <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
             <hr>
@@ -123,67 +125,11 @@
                 </div>
               </div>
               <div class="tab-pane" id="product-description">
-                <p>Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas tempor est, in cursus enim venenatis eget!</p>
-                <p>Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum.</p>
-                <p>Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales!</p>
+                <%= @project.description %>
               </div>
               <div class="tab-pane" id="product-reviews">
-                <ul class="media-list push">
-                  <li class="media">
-                    <a href="javascript:void(0)" class="pull-left">
-                    <%= image_tag "avatar/avatar1.jpg",class: "img-circle" %>
-                    </a>
-                    <div class="media-body">
-                      <div class="text-warning pull-right">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <a href="javascript:void(0)"><strong>Customer</strong></a><br>
-                      <span class="text-muted"><small><em>2 hours ago</em></small></span>
-                      <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti.</p>
-                    </div>
-                  </li>
-                  <li class="media">
-                    <a href="javascript:void(0)" class="pull-left">
-                    <%= image_tag "avatar/avatar1.jpg",class: "img-circle" %>
-                    </a>
-                    <div class="media-body">
-                      <div class="text-warning pull-right">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <a href="javascript:void(0)"><strong>Customer</strong></a><br>
-                      <span class="text-muted"><small><em>2 hours ago</em></small></span>
-                      <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti.</p>
-                    </div>
-                  </li>
-                  <li class="media">
-                    <a href="javascript:void(0)" class="pull-left">
-                    <%= image_tag "avatar/avatar1.jpg",class: "img-circle" %>
-                    </a>
-                    <div class="media-body">
-                      <div class="text-warning pull-right">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <a href="javascript:void(0)"><strong>Customer</strong></a><br>
-                      <span class="text-muted"><small><em>2 hours ago</em></small></span>
-                      <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Donec lacinia venenatis metus at bibendum? In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti.</p>
-                    </div>
-                  </li>
-                </ul>
                 <%= render "layouts/comment" %>
                 <%= content_tag :div, '', :class => "fb-comments", "data-href" => request.original_url, "data-numposts" => "5", "data-colorscheme" => "light", "data-width": "877px" %>
-
               </div>
             </div>
           </div>

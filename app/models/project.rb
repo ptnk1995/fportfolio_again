@@ -14,6 +14,8 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :participates, allow_destroy: true
 
+  scope :recent, ->{order created_at: :desc}
+
   private
   def create_room
     Room.create! project_id: id

@@ -31,7 +31,7 @@
           <!-- .. along with a div.gallery-image-options which will contain your hover links! -->
           <div class="gallery-image-options">
             <!-- Link to your large image with the attribute data-toggle="lightbox-image" -->
-            <a href="../assets/<%= post.image.url %>" data-toggle="lightbox-image" title="<%= raw post.content %>" class="gallery-link btn btn-sm btn-primary"><i class="fa fa-eye"></i> View</a>
+
             <%= link_to edit_admin_post_path(post), title: "Edit", class: "btn btn-sm btn-alt btn-primary", data: {toggle: "tooltip"} do %>
               <i class="fa fa-pencil"></i>
             <% end %>

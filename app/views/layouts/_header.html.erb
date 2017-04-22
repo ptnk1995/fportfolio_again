@@ -39,9 +39,6 @@
           <%= link_to "Blogs", blogs_path(I18n.locale) %>
         </li>
         <li>
-          <a href="pricing.html">Pricing</a>
-        </li>
-        <li>
           <%= link_to "Contact", contacts_path(I18n.locale) %>
         </li>
         <li>
@@ -81,21 +78,10 @@
             </li>
             <% else  %>
               <%= link_to "Login", new_user_session_path() %>
+              <%= link_to "Sign up", new_user_registration_path() %>
             <% end %>
             <li>
               <a href="index_alt.html">Full Width (Dark)</a>
-            </li>
-            <li>
-              <a href="index_parallax.html">Full Width Parallax</a>
-            </li>
-            <li>
-              <a href="index_boxed.html">Boxed</a>
-            </li>
-            <li>
-              <a href="index_boxed_alt.html">Boxed (Dark)</a>
-            </li>
-            <li>
-              <a href="index_boxed_parallax.html">Boxed Parallax</a>
             </li>
           </ul>
         </li>

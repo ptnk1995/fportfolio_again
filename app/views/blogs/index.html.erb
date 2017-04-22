@@ -23,57 +23,52 @@
 <section class="site-content site-section">
   <div class="container">
 
-    <div class="row site-block">
+    <div class="site-block">
       <%= form_tag blogs_path, method: "GET", id: "search_post",
-              class: "navbar-form navbar-left" do %>
-              <%= text_field_tag :search, params[:search],
-                placeholder: "Search..", class: "form-control", style: "width: 840px;" %>
-                <div id = "result_search"></div>
-            <% end %>
+        class: "navbar-form navbar-left" do %>
+        <%= text_field_tag :search, params[:search],
+          placeholder: "Search..", class: "form-control", style: "width: 840px;" %>
+          <div id = "result_search"></div>
+      <% end %>
     </div>
     <!-- END Seach Form -->
-    <div class="row">
+    <div class="row" style="margin-top: 100px;">
       <!-- Posts -->
       <div class="col-sm-8 col-md-9">
         <!-- Blog Post -->
-      <% @posts.each do |post| %>
-        <div class="site-block">
-          <div class="row">
-            <div class="col-md-4">
-              <p>
-                <%= link_to blog_path(post) do %>
-                  <%= image_tag post.image, class: "img-responsive", style: "height: 160px;" %>
-                <% end %>
-              </p>
+        <% @posts.each do |post| %>
+          <div class="site-block">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>
+                      <%= link_to blog_path(post) do %>
+                        <%= image_tag post.image, class: "img-responsive", style: "height: 160px;" %>
+                      <% end %>
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="site-heading"><strong><%= post.title %></strong></h3>
+                    <p><%= post.title.truncate(100) %></p>
+                </div>
             </div>
-            <div class="col-md-8">
-              <h3 class="site-heading"><strong><%= post.title %></strong></h3>
-              <p><%= raw post.content.truncate(100) %></p>
+            <div class="clearfix">
+                <p class="pull-right">
+                  <%= link_to "Read more ..", blog_path(post), class: "label label-primary" %>
+                </p>
+                <ul class="list-inline pull-left">
+                  <li><i class="fa fa-calendar"></i> <%= l post.created_at, format: :long %></li>
+                  <li><i class="fa fa-user"></i> by <a href="javascript:void(0)"><%= post.user.name %></a></li>
+                  <li><i class="fa fa-tag"></i> <a href="javascript:void(0)"><%= post.category.name %></a></li>
+                </ul>
             </div>
-          </div>
-          <div class="clearfix">
-            <p class="pull-right">
-            <%= link_to "Read more ..", blog_path(post), class: "label label-primary" %>
-            </p>
-            <ul class="list-inline pull-left">
-              <li><i class="fa fa-calendar"></i> <%= l post.created_at, format: :long %></li>
-              <li><i class="fa fa-user"></i> by <a href="javascript:void(0)"><%= post.user.name %></a></li>
-              <li><i class="fa fa-tag"></i> <a href="javascript:void(0)"><%= post.category.name %></a></li>
-            </ul>
-          </div>
         </div>
       <% end %>
-        <!-- END Blog Post -->
-
-        <!-- END Blog Post -->
         <!-- Pagination -->
         <div class="text-right">
           <%= paginate @posts %>
         </div>
         <!-- END Pagination -->
       </div>
-      <!-- END Posts -->
-      <!-- Sidebar -->
       <div class="col-sm-4 col-md-3">
         <aside class="sidebar site-block">
 
@@ -92,6 +87,15 @@
           <!-- END About -->
         </aside>
       </div>
+    </div>
+
+        <!-- END Blog Post -->
+
+        <!-- END Blog Post -->
+
+      <!-- END Posts -->
+      <!-- Sidebar -->
+
       <!-- END Sidebar -->
     </div>
   </div>

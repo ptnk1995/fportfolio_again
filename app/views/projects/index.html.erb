@@ -10,31 +10,18 @@
 <section class="site-content site-section">
   <div class="container">
     <div class="row">
+     <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %> fade in alert-dismissable"><%= message %>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+        </div>
+      <% end %>
       <!-- Sidebar -->
       <%= render "shared/sidebar_project" %>
       <!-- END Sidebar -->
       <!-- Products -->
       <div class="col-md-8 col-lg-9">
-        <div class="form-inline push-bit clearfix">
-          <select id="results-show" name="results-show" class="form-control pull-right" size="1">
-            <option value="0" disabled selected>SHOW</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="75">75</option>
-            <option value="100">100</option>
-          </select>
-          <select id="results-sort" name="results-sort" class="form-control" size="1">
-            <option value="0" disabled selected>SORT BY</option>
-            <option value="1">Popularity</option>
-            <option value="2">Name (A to Z)</option>
-            <option value="3">Name (Z to A)</option>
-            <option value="4">Price (Lowest to Highest)</option>
-            <option value="5">Price (Highest to Lowest)</option>
-            <option value="6">Sales (Lowest to Highest)</option>
-            <option value="7">Sales (Highest to Lowest)</option>
-          </select>
-        </div>
         <div class="row store-items">
+        <% @projects.each do |project| %>
           <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
             <div class="store-item">
               <div class="store-item-rating text-warning">
@@ -45,118 +32,20 @@
                 <i class="fa fa-star-half-o"></i>
               </div>
               <div class="store-item-image">
-                <%= link_to project_path(id: 1) do %>
-                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
+                <%= link_to project_path(project) do %>
+                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive", style: "width: 400px; height: 200px;" %>
                 <% end %>
               </div>
               <div class="store-item-info clearfix">
-                <a href="ecom_product.html"><strong>Sunglasses</strong></a><br>
+                <%= link_to project_path(project) do %>
+                  <strong><%= project.name %></strong>
+                <% end %>
               </div>
             </div>
           </div>
-          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-            <div class="store-item">
-              <div class="store-item-rating text-warning">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-              </div>
-              <div class="store-item-image">
-                <a href="ecom_product.html">
-                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-                </a>
-              </div>
-              <div class="store-item-info clearfix">
-                <a href="ecom_product.html"><strong>Gloves</strong></a><br>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-            <div class="store-item">
-              <div class="store-item-rating text-warning">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-              </div>
-              <div class="store-item-image">
-                <a href="ecom_product.html">
-                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-                </a>
-              </div>
-              <div class="store-item-info clearfix">
-                <span class="store-item-price themed-color-dark pull-right">$ 99</span>
-                <a href="ecom_product.html"><strong>Jacket</strong></a><br>
-                <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-            <div class="store-item">
-              <div class="store-item-rating text-warning">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-            </div>
-            <div class="store-item-image">
-              <a href="ecom_product.html">
-                <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-              </a>
-            </div>
-            <div class="store-item-info clearfix">
-              <span class="store-item-price themed-color-dark pull-right">$ 79</span>
-              <a href="ecom_product.html"><strong>Headset</strong></a><br>
-              <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
-            </div>
-          </div>
+        <% end %>
         </div>
-        <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-          <div class="store-item">
-            <div class="store-item-rating text-warning">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-            </div>
-            <div class="store-item-image">
-              <a href="ecom_product.html">
-                <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-              </a>
-            </div>
-            <div class="store-item-info clearfix">
-              <span class="store-item-price themed-color-dark pull-right">$ 1.599</span>
-              <a href="ecom_product.html"><strong>Laptop</strong></a><br>
-              <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInQuick" data-element-offset="-100">
-          <div class="store-item">
-            <div class="store-item-rating text-warning">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-            </div>
-            <div class="store-item-image">
-              <a href="ecom_product.html">
-                <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-              </a>
-            </div>
-            <div class="store-item-info clearfix">
-              <span class="store-item-price themed-color-dark pull-right">$ 149</span>
-              <a href="ecom_product.html"><strong>Sunglasses</strong></a><br>
-              <small><i class="fa fa-shopping-cart text-muted"></i> <a href="javascript:void(0)" class="text-muted">Add to cart</a></small>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
     <!-- END Products -->
