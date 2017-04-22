@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout
+
   before_filter :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def layout
-    is_a?(Devise::SessionsController) ? false : "application"
+    is_a?(Devise::SessionsController) ? false : false
   end
+
 
   def set_locale
     if params[:locale].present?

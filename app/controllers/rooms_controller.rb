@@ -1,4 +1,4 @@
-class RoomsController < ApplicationController
+class RoomsController < BaseController
   before_action :authenticate_user!
   layout "application_room"
   def index

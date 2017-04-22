@@ -1,4 +1,4 @@
-class TeamsController < ApplicationController
+class TeamsController < BaseController
   def index
   end
 end

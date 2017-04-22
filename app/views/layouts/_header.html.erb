@@ -79,6 +79,8 @@
                 <%= t "log_out" %>
               <% end %>
             </li>
+            <% else  %>
+              <%= link_to "Login", new_user_session_path() %>
             <% end %>
             <li>
               <a href="index_alt.html">Full Width (Dark)</a>

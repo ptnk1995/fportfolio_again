@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class ContactsController < BaseController
   def index
     @contact = Contact.new
   end
