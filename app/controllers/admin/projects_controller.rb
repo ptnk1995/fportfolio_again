@@ -19,11 +19,15 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def create
+    binding.pry
     @project = Project.create project_params
+
     if @project.persisted?
+      images_params[:images].each {|image| @project.images.build(image: image).save}
       params[:project][:participate].each do |k, v|
         binding.pry
         Participate.create!(position: v[:name], user_id: v[:id], project_id: @project.id) if v[:name].present? && v[:id].present?
+
       end
       flash[:success] = t "create_success"
       redirect_to admin_projects_path
@@ -69,5 +73,9 @@ class Admin::ProjectsController < Admin::BaseController
 
     params.require(:project).permit(:name, :url, :category_id,
       :description).merge! feature_ids: feature_ids, technique_ids: technique_ids
+  end
+
+  def images_params
+    params.require(:project).permit images: []
   end
 end

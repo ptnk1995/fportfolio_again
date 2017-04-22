@@ -28,7 +28,7 @@
         <!-- Just wrap your image with a div.gallery-image and.. -->
         <div class="gallery-image">
           <!-- .. add your image.. -->
-          <%= image_tag "", class: "img-responsive", style: "height: 170px;" %>
+          <%= image_tag project.images.first.image.url, class: "img-responsive", style: "height: 170px;" %>
           <!-- .. along with a div.gallery-image-options which will contain your hover links! -->
           <div class="gallery-image-options">
             <!-- Link to your large image with the attribute data-toggle="lightbox-image" -->

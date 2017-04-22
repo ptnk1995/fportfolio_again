@@ -56,59 +56,24 @@
         </ul>
         <!-- END Step Info -->
         <div class="row">
-            <div class="col-sm-6">
-                <h4 class="page-header">Billing Address</h4>
+            <div class="col-sm-12">
+                <h4 class="page-header">Choose images</h4>
                 <div class="form-group">
-                    <label for="checkout-billing-name">Name</label>
-                    <input type="text" id="checkout-billing-name" name="checkout-billing-name" class="form-control">
+                    <label for="checkout-billing-name">Image 1</label>
+                    <%= f.file_field :images, class: "form-control", multiple: true  %>
+                </div>
+          <!--       <div class="form-group">
+                    <label for="checkout-billing-name">Image 2</label>
+                    <%= f.file_field :images, class: "form-control"  %>
                 </div>
                 <div class="form-group">
-                    <label for="checkout-billing-address1">Address 1</label>
-                    <input type="text" id="checkout-billing-address1" name="checkout-billing-address1" class="form-control">
+                    <label for="checkout-billing-name">Image 3</label>
+                    <%= f.file_field :images, class: "form-control"  %>
                 </div>
                 <div class="form-group">
-                    <label for="checkout-billing-address1">Address 2</label>
-                    <input type="text" id="checkout-billing-address2" name="checkout-billing-address2" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-billing-postal">Postal Code</label>
-                    <input type="text" id="checkout-billing-postal" name="checkout-billing-postal" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-billing-phone">Phone</label>
-                    <input type="text" id="checkout-billing-phone" name="checkout-billing-phone" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-billing-address1">City</label>
-                    <input type="text" id="checkout-billing-city" name="checkout-billing-city" class="form-control">
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h4 class="page-header">Shipping Address</h4>
-                <div class="form-group">
-                    <label for="checkout-shipping-name">Name</label>
-                    <input type="text" id="checkout-shipping-name" name="checkout-shipping-name" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-shipping-address1">Address 1</label>
-                    <input type="text" id="checkout-shipping-address1" name="checkout-shipping-address1" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-shipping-address1">Address 2</label>
-                    <input type="text" id="checkout-shipping-address2" name="checkout-shipping-address2" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-shipping-postal">Postal Code</label>
-                    <input type="text" id="checkout-shipping-postal" name="checkout-shipping-postal" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-shipping-phone">Phone</label>
-                    <input type="text" id="checkout-shipping-phone" name="checkout-shipping-phone" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="checkout-shipping-address1">City</label>
-                    <input type="text" id="checkout-shipping-city" name="checkout-shipping-city" class="form-control">
-                </div>
+                    <label for="checkout-billing-name">Image 4</label>
+                    <%= f.file_field :images, class: "form-control"  %>
+                </div> -->
             </div>
         </div>
     </div>
