@@ -2,6 +2,7 @@ class BlogsController < BaseController
   def index
     @posts = Post.all.recent.page(params[:page]).per 1
     @categories = Category.blog
+    @posts_search = Post.search(params[:search])
     if params[:category].blank?
       @posts = Post.all.recent.page(params[:page]).per Settings.per_page
     else

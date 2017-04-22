@@ -11,4 +11,8 @@ class Post < ApplicationRecord
   scope :except_id, ->id do
     where("id != ?", id).limit Settings.related_item
   end
+
+  scope :search, ->search do
+    where("title like ?", "%#{search}%").limit Settings.limit_post
+  end
 end

@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <% @posts_search.each do |posts_search| %>
+  <li class="list-group-item">
+    <div style="float: left;">
+    <%= image_tag posts_search.image, class: "img-responsive", style: "width: 60px; height: 60px; margin-right: 10px;" %>
+    </div>
+    <div style="float: left;">
+      <%= link_to posts_search.title, blog_path(posts_search) %>
+    </div>
+    <div class="clearfix"></div>
+  </li>
+  <% end %>
+</ul>
