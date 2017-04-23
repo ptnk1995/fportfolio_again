@@ -1,0 +1,9 @@
+en:
+  layouts:
+    header:
+      projects: "Projects"
+      blogs: "Posts"
+      contact: "Contact"
+      about: "About us"
+      login: "Login"
+      logout: "Logout"

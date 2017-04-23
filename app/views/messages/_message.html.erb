@@ -1,5 +1,7 @@
 <div class="message">
-  <a href="" class="message_profile-pic"></a>
+  <a href="" class="message_profile-pic">
+    <%= image_tag message.user.avatar, style: "width: 40px; height: 40px; border-radius: 50%;" %>
+  </a>
   <a href="" class="message_username"><%= message.user.email %></a>
   <span class="message_timestamp">
     <%= message.created_at %>

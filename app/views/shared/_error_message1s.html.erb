@@ -1,0 +1,16 @@
+<div id="flash-messages" class="error-sucesss">
+  <% if flash[:error] %>
+      <div class="error row">
+        <i class="icon-error"></i>
+        <div class="main-title col m12"><%= flash[:error] %></div>
+      </div>
+  <% end %>
+  <% if flash[:success]&.any? %>
+    <% flash[:success].each do |message| %>
+      <div class="success row">
+        <i class="icon-success"></i>
+        <div class="main-title col m12"><%= message %></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+ja:
+  layouts:
+    header:
+      projects: "プロジェクト"
+      blogs: "用品"
+      contact: "接続"
+      about: "会社概要"
+      login: "ログイン"
+      logout: "サインアウト"

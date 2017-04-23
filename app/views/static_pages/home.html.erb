@@ -4,8 +4,10 @@
     <div class="active item">
       <section class="site-section site-section-light site-section-top themed-background-default">
         <div class="container">
-          <h1 class="text-center animation-slideDown hidden-xs"><strong>A complete web solution for your awesome project</strong></h1>
-          <h2 class="text-center animation-slideUp push hidden-xs">Bring your project to life months sooner</h2>
+          <h1 class="text-center animation-slideDown hidden-xs">
+            <strong><%= t ".slogan1"%></strong>
+          </h1>
+          <h2 class="text-center animation-slideUp push hidden-xs"><%= t ".des_slogan1"%></h2>
           <p class="text-center animation-fadeIn">
             <!-- <img src="img/placeholders/screenshots/promo_desktop_left.png" alt="Promo Image 1"> -->
             <%= image_tag "promo_desktop_left.png" %>
@@ -16,8 +18,8 @@
     <div class="item">
       <section class="site-section site-section-light site-section-top themed-background-fire">
         <div class="container">
-          <h1 class="text-center animation-fadeIn360 hidden-xs"><strong>Featuring a Powerful and Flexible layout</strong></h1>
-          <h2 class="text-center animation-fadeIn360 push hidden-xs">Letting you focus on creating your project</h2>
+          <h1 class="text-center animation-fadeIn360 hidden-xs"><strong><%= t ".slogan2"%></strong></h1>
+          <h2 class="text-center animation-fadeIn360 push hidden-xs"><%= t ".des_slogan2"%></h2>
           <p class="text-center animation-fadeInLeft">
             <!-- <img src="img/placeholders/screenshots/promo_desktop_right.png" alt="Promo Image 2"> -->
             <%= image_tag "promo_desktop_left.png" %>
@@ -28,8 +30,8 @@
     <div class="item">
       <section class="site-section site-section-light site-section-top themed-background-amethyst">
         <div class="container">
-          <h1 class="text-center animation-hatch hidden-xs"><strong>Fully Responsive and Retina Ready</strong></h1>
-          <h2 class="text-center animation-hatch push hidden-xs">The UI will look great and crisp</h2>
+          <h1 class="text-center animation-hatch hidden-xs"><strong><%= t ".slogan3"%></strong></h1>
+          <h2 class="text-center animation-hatch push hidden-xs"><%= t ".des_slogan3"%></h2>
           <p class="text-center animation-hatch">
             <!--   <img src="img/placeholders/screenshots/promo_mobile.png" alt="Promo Image 3"> -->
             <%= image_tag "promo_desktop_left.png" %>
@@ -40,8 +42,8 @@
     <div class="item">
       <section class="site-section site-section-light site-section-top themed-background-modern">
         <div class="container">
-          <h1 class="text-center animation-fadeInLeft hidden-xs"><strong>Tons of features are designed &amp; waiting for you</strong></h1>
-          <h2 class="text-center animation-fadeInRight push hidden-xs">Everything you need for your project</h2>
+          <h1 class="text-center animation-fadeInLeft hidden-xs"><strong><%= t ".slogan4"%></strong></h1>
+          <h2 class="text-center animation-fadeInRight push hidden-xs"><%= t ".des_slogan4"%></h2>
           <p class="text-center animation-fadeIn360">
             <!--   <img src="img/placeholders/screenshots/promo_tablet.png" alt="Promo Image 4"> -->
             <%= image_tag "promo_desktop_left.png" %>
@@ -83,8 +85,9 @@
         <%= image_tag "promo_desktop_left.png", class: "img-responsive" %>
       </div>
       <div class="col-sm-6 col-md-5 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-        <h3 class="h2 site-heading site-heading-promo"><strong>Clean and Modern</strong> Design</h3>
-        <p class="promo-content">ProUI is a professional, modern and solid foundation for your next awesome project. It comes packed with great features that you will love. <a href="features.html">Learn More..</a></p>
+        <h3 class="h2 site-heading site-heading-promo">
+        <strong><%= t ".clean" %></strong> <%= t ".design" %></h3>
+        <p class="promo-content"><%= t ".des_clean" %></p>
       </div>
     </div>
     <hr>
@@ -97,7 +100,7 @@
     <div class="row">
       <div class="col-sm-6 col-md-5 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
         <h3 class="h2 site-heading site-heading-promo"><strong>Powerful</strong> Admin Template</h3>
-        <p class="promo-content">ProUI has a powerful and flexible layout to meet every need. It comes packed with 9 awesome and fresh color themes that you will love, too. <a href="features.html">Learn More..</a></p>
+        <p class="promo-content"><%= t ".des_pro2" %></p>
       </div>
       <div class="col-sm-6 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
         <%= image_tag "promo_desktop_right", class: "img-responsive" %>

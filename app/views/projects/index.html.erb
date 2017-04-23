@@ -33,7 +33,7 @@
               </div>
               <div class="store-item-image">
                 <%= link_to project_path(project) do %>
-                  <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive", style: "width: 400px; height: 200px;" %>
+                  <%= image_tag project.images.first.image.url, class: "img-responsive", style: "width: 400px; height: 200px;" %>
                 <% end %>
               </div>
               <div class="store-item-info clearfix">

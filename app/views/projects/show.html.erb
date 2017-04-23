@@ -18,21 +18,24 @@
         <div class="row" data-toggle="lightbox-gallery">
           <!-- Images -->
           <div class="col-sm-6 push-bit">
-            <a href="/assets/portfolio/portfolio-1.png" class="gallery-link">
-            <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive push-bit" %>
-            </a>
+            <%= link_to @project.images.first.image.url, class: "gallery-link" do %>
+              <%= image_tag @project.images.first.image.url, class: "img-responsive push-bit", style: "width:400px; height: 270px;" %>
+            <% end %>
             <div class="row push-bit">
               <div class="col-xs-4">
-                <a href="/assets/portfolio/portfolio-1.png" class="gallery-link">
-                <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %></a>
+                <%= link_to @project.images.second.image.url, class: "gallery-link" do %>
+                  <%= image_tag @project.images.second.image.url, class: "img-responsive push-bit", style: "width:400px; height: 70px;" %>
+                <% end %>
               </div>
               <div class="col-xs-4">
-                <a href="/assets/portfolio/portfolio-1.png" class="gallery-link"><%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %></a>
+                <%= link_to @project.images.third.image.url, class: "gallery-link" do %>
+                  <%= image_tag @project.images.third.image.url, class: "img-responsive push-bit", style: "width:400px; height: 70px;" %>
+                <% end %>
               </div>
               <div class="col-xs-4">
-                <a href="/assets/portfolio/portfolio-1.png" class="gallery-link">
-                <%= image_tag "portfolio/portfolio-1.png", class: "img-responsive" %>
-                </a>
+                <%= link_to @project.images.fourth.image.url, class: "gallery-link" do %>
+                  <%= image_tag @project.images.fourth.image.url, class: "img-responsive push-bit", style: "width:400px; height: 70px;" %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -45,8 +48,7 @@
             </div>
             <hr>
             <%= social_share_button_tag("Fprotfolio Framgia", :url => "http://brs35framgia.herokuapp.com/books?category=3", :image => "http://brs35framgia.herokuapp.com/assets/book1-277127914e95ab2fd02094a8cee15b1936db81e25464dce7e98e7895597531f0.jpg") %>
-            <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
-            <p>Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci.</p>
+            <br/><b>Link deploy:  </b><%= link_to @project.url, @project.url %>
             <hr>
 
             <form action="ecom_shopping_cart.html" method="post" class="form-inline push-bit text-right">
@@ -69,54 +71,17 @@
                   <section class="site-content site-section">
                     <div class="">
                       <div class="row row-items text-center">
+                      <% @features.each do |feature| %>
                         <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-fire" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
+                        <!--   <a href="javascript:void(0)" class="circle visibility-none themed-background-fire" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
                           <i class="gi gi-fire"></i>
-                          </a>
-                          <h4><strong>Bootstrap</strong> Powered</h4>
+                          </a> -->
+                          <%= link_to "" do %>
+                            <%= image_tag feature.image.url, class: "circle themed-background-fire" %>
+                          <% end %>
+                          <h4><strong><%= feature.name %></strong></h4>
                         </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-iphone_shake"></i>
-                          </a>
-                          <h4><strong>Fully</strong> Responsive</h4>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-flatie" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-eye_open"></i>
-                          </a>
-                          <h4><strong>Retina</strong> Ready</h4>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-amethyst" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-globe_af"></i>
-                          </a>
-                          <h4><strong>Cross Browser</strong> Support</h4>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-spring" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-flash"></i>
-                          </a>
-                          <h4><strong>Lightweight</strong> UI</h4>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-autumn" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-iphone"></i>
-                          </a>
-                          <h4><strong>Mobile</strong> First</h4>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-night" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-settings"></i>
-                          </a>
-                          <h4><strong>Awesome</strong> Components</h4>
-                        </div>
-                        <div class="col-sm-3">
-                          <a href="javascript:void(0)" class="circle visibility-none themed-background-fancy" data-toggle="animation-appear" data-animation-class="animation-fadeIn360" data-element-offset="-100">
-                          <i class="gi gi-electricity"></i>
-                          </a>
-                          <h4><strong>Flexible</strong> Layout</h4>
-                        </div>
+                      <% end %>
                       </div>
                       <hr>
                     </div>
@@ -125,7 +90,7 @@
                 </div>
               </div>
               <div class="tab-pane" id="product-description">
-                <%= @project.description %>
+                <%= raw @project.description %>
               </div>
               <div class="tab-pane" id="product-reviews">
                 <%= render "layouts/comment" %>

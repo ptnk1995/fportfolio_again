@@ -1,0 +1,12 @@
+ja:
+  hello: "Hello world"
+  email: "Email"
+  password: "Password"
+  fportfolio: "Fportfolio Framgia"
+  login: "Login"
+  explore_project: "Khám phá hơn 5000 dự án!"
+  error: "Lỗi"
+  the_form_contains: "Form này có "
+  time:
+    formats:
+      long: "%d/%m/%Y"

@@ -1,0 +1,10 @@
+vi:
+  layouts:
+    header:
+      projects: "Các dự án"
+      blogs: "Các bài viết"
+      contact: "Liên hệ"
+      about: "Về chúng tôi"
+      login: "Đăng nhập"
+      logout: "Đăng xuất"
+      fportolio: "Fportolio"

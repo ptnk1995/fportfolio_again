@@ -1,5 +1,6 @@
 <%= form_for [:admin , @project], html: {id: "checkout-wizard"} do |f| %>
   <%= render "shared/error_messages", object: f.object %>
+  <%= render "shared/error_message1s", flash: flash %>
     <!-- First Step -->
     <div id="checkout-first" class="step">
         <!-- Step Info -->

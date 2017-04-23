@@ -3,14 +3,16 @@ class ProjectsController < BaseController
   def index
     @projects = Project.recent
     if params[:category].blank?
-      @projects = Project.recent.page(params[:page]).per Settings.per_page
+      @projects = Project.recent
+      #.page(params[:page]).per Settings.per_page
     else
       @category = Category.find_by id: params[:category]
       unless @category
         flash[:danger] = t "record_isnt_exist"
         redirect_to projects_path
       else
-        @projects = @category.projects.recent.page(params[:page]).per Settings.per_page
+        @projects = @category.projects.recent
+        #.page(params[:page]).per Settings.per_page
       end
     end
   end
@@ -18,6 +20,7 @@ class ProjectsController < BaseController
   def show
     @project = Project.find_by id: params[:id]
     if @project
+      @features = @project.features
     else
       flash[:danger] = t "record_isnt_exist"
       redirect_to projects_path

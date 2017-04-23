@@ -6,8 +6,9 @@ class Project < ApplicationRecord
   has_many :techniques, through: :technique_projects
   has_many :participates, dependent: :destroy
   has_many :users, through: :participates
-  has_many :images, as: :target
+  has_many :images, as: :target, dependent: :destroy
   has_one :room, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
   after_create :create_room
 
   validates :category, presence: true

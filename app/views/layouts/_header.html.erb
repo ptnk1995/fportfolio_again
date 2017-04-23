@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Site Logo -->
     <%= link_to root_path(I18n.locale), class: "site-logo" do %>
-    <i class="gi gi-flash"></i> <strong>Pro</strong>UI
+    <i class="gi gi-flash"></i> <strong><%= t ".fportolio" %></strong>
     <% end %>
     <!-- Site Logo -->
     <!-- Site Navigation -->
@@ -24,7 +24,7 @@
         <!-- END Menu Toggle -->
 
         <li>
-          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Projects</a>
+          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i><%= t ".projects" %></a>
           <ul>
             <li>
               <%= link_to "Top projects", tops_path(I18n.locale) %>
@@ -36,13 +36,13 @@
         </li>
 
         <li>
-          <%= link_to "Blogs", blogs_path(I18n.locale) %>
+          <%= link_to t(".blogs"), blogs_path(I18n.locale) %>
         </li>
         <li>
-          <%= link_to "Contact", contacts_path(I18n.locale) %>
+          <%= link_to t(".contact"), contacts_path(I18n.locale) %>
         </li>
         <li>
-          <%= link_to "About", abouts_path(I18n.locale) %>
+          <%= link_to t(".about"), abouts_path(I18n.locale) %>
         </li>
         <li>
           <% if params[:locale].present? %>
@@ -68,12 +68,12 @@
             </ul>
         </li>
         <li class="active">
-          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i>Login</a>
+          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i><%= t ".login" %></a>
           <ul>
             <% if user_signed_in? %>
             <li>
               <%= link_to destroy_user_session_path(locale: I18n.locale), method: :delete do %>
-                <%= t "log_out" %>
+                <%= t ".logout" %>
               <% end %>
             </li>
             <% else  %>

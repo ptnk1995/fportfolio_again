@@ -48,10 +48,10 @@
         <% @roles.each_with_index do |role, index| %>
           <tr id="role-<%= role.id %>">
             <td class="text-center"><%= index + 1 %></td>
-            <td><%= link_to admin_role_user_roles_path(role) do %><%= role.name %><% end %></td>
+            <td><%= link_to "" do %><%= role.name %><% end %></td>
             <td class="text-center">
               <div class="btn-group btn-group-xs">
-                <%= link_to admin_role_user_roles_path(role), title: "Detail", class: "btn btn-default", data: {toggle: "tooltip"} do %>
+                <%= link_to "", title: "Detail", class: "btn btn-default", data: {toggle: "tooltip"} do %>
                   <i class="fa fa-eye"></i>
                 <% end %>
                 <%= link_to edit_admin_role_path(role), title: "Edit", class: "btn btn-default", data: {toggle: "tooltip"} do %>
