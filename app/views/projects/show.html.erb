@@ -47,7 +47,7 @@
               <small><%= l @project.created_at, format: :long %></small></span>
             </div>
             <hr>
-            <%= social_share_button_tag("Fprotfolio Framgia", :url => "http://brs35framgia.herokuapp.com/books?category=3", :image => "http://brs35framgia.herokuapp.com/assets/book1-277127914e95ab2fd02094a8cee15b1936db81e25464dce7e98e7895597531f0.jpg") %>
+            <%= social_share_button_tag(@project.name, :url => @project.url, :image => "http://brs35framgia.herokuapp.com/assets/book1-277127914e95ab2fd02094a8cee15b1936db81e25464dce7e98e7895597531f0.jpg") %>
             <br/><b>Link deploy:  </b><%= link_to @project.url, @project.url %>
             <hr>
 

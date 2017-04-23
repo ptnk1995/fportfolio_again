@@ -7,7 +7,7 @@
     <%= image_tag @post.user.avatar, class: "site-top-avatar pull-right img-circle animation-fadeIn360" %>
     </a>
     <h1 class="animation-slideDown"><strong><%= @post.title %></strong></h1>
-    <h2 class="h3 animation-slideUp hidden-xs">Once in a lifetime experience!</h2>
+    <h2 class="h3 animation-slideUp hidden-xs"><%= @post.category.name %></h2>
   </div>
 </section>
 <!-- END Intro -->

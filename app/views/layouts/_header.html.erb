@@ -24,15 +24,15 @@
         <!-- END Menu Toggle -->
 
         <li>
-          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i><%= t ".projects" %></a>
+         <!--  <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i><%= t ".projects" %></a>
           <ul>
             <li>
               <%= link_to "Top projects", tops_path(I18n.locale) %>
-            </li>
+            </li> -->
             <li>
-              <%= link_to "List Projects", projects_path(I18n.locale) %>
+              <%= link_to t(".projects"), projects_path(I18n.locale) %>
             </li>
-          </ul>
+          <!-- </ul> -->
         </li>
 
         <li>
@@ -82,13 +82,15 @@
                 <%= t ".logout" %>
               <% end %>
             </li>
+            <% if current_user.has_role? :admin %>
+              <li>
+                <%= link_to "Admin", admin_root_path() %>
+              </li>
+            <% end %>
             <% else  %>
               <%= link_to "Login", new_user_session_path() %>
               <%= link_to "Sign up", new_user_registration_path() %>
             <% end %>
-            <li>
-              <a href="index_alt.html">Full Width (Dark)</a>
-            </li>
           </ul>
         </li>
       </ul>
